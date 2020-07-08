@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>gsonya-HTML</title>
+    <style type="text/css" media="screen">
+        /* 全局设置 */
+        html,body{
+            overflow:scroll;
+        }
+        #golbal{
+            width:100%;
+            height:100%;
+        }
+        /* 标题 */
+        #Title{
+            width:60%;
+            height:50px;
+            display:inline-block;       /*行级元素拥有块级元素属性*/
+            text-align:center;          /*水平居中*/
+            line-height:50px;           /*垂直居中*/
+            border:1px solid black;
+            /* background-color:green; */
+        }
+        /* 搜索框 */
+        #search{
+            width:38%;
+            height:50px;
+            display:inline-block;
+            text-align:center;
+            line-height:50px;
+            border:1px solid black;
+            /* background-color:red; */
+        }
+        /* 导航栏 */
+        #navigation{
+            height:25px;
+            border:1px solid black;
+            margin-bottom:15px;
+        }
+        .Navi{
+            float:left;
+            width:25%;
+        }
+        /* 轮播图注释 */
+        #annotation{
+            width:10%;
+            float:left;
+            height:300px;
+            border:1px solid green;
+            position:absolute;
+        }
+        /* 轮播图 */
+        #slideshow{
+            width:89%;
+            height:300px;
+            float: left;
+            border:1px solid black;
+            margin-left:10%;
+            position:absolute;
+        }
+        /* HTML实例 */
+        #sample{
+            height:25%;
+            width:100%;
+            margin-top:48px;
+            border:1px solid greenyellow;
+            position:absolute;
+            margin-bottom:38px;
+        }
+        /* 右侧栏 */
+        #right-bar{
+            float:left;
+            width:25%;
+            height:500px;
+            margin-left:75%;
+            border:1px solid orange;
+            position:absolute;
+
+        }
+        #login{
+            height:30%;
+            border:1px solid black;
+        }
+        #image{
+            height:10%;
+            border:1px solid black;
+        }
+        #link{
+            height:55%;
+            border:1px solid black;
+            margin-bottom:38px;
+        }
+        /* 底部 */
+        #footer{
+            width:100%;
+            border:1px solid black;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+<div id="global">
+
+    <div style="border:1px solid black;">
+        <span id="Title" >gsonya-HTML</span>
+        <span id="search" >Type here to search</span>
+    </div>
+    <div id="navigation">
+        <div class="Navi">首页</div>
+        <div class="Navi">HTML笔记</div>
+        <div class="Navi">其它</div>
+        <div class="Navi">联系我</div>
+    </div>
+    <div  style="border:1px solid red;width:100%;height:500px;position: relative;">
+        <div style="float:left;/*border:1px solid red;*/width:70%;height:500px;position:relative" >
+            <div style="height:60%;position:relative" >
+                <div id="annotation" >轮播图解释
+                </div>
+                <div id="slideshow">轮播图
+                </div>
+            </div>
+            <div id="sample">HTML实例
+            </div>
+        </div>
+        <div id="right-bar">
+            <div id="login">登录</div>
+            <div id="image">图片</div>
+            <div id="link">链接</div>
+        </div>
+    </div>
+    <footer id="footer">
+     &copy版权所有：gsonya
+    </footer>
+</div>
+
+</body>
+</html>
