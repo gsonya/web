@@ -5,11 +5,13 @@
     <style type="text/css" media="screen">
         /* 全局设置 */
         html,body{
-            overflow:scroll;
+            overflow:auto;
+            background-image:url("image/background.jpg");
         }
         #golbal{
             width:100%;
             height:100%;
+
         }
         /* 标题 */
         #Title{
@@ -18,8 +20,8 @@
             display:inline-block;       /*行级元素拥有块级元素属性*/
             text-align:center;          /*水平居中*/
             line-height:50px;           /*垂直居中*/
-            border:1px solid black;
-            /* background-color:green; */
+            font-size:40px;
+            text-shadow:7px 2px 6px #FF6200;     /*设置字体阴影*/
         }
         /* 搜索框 */
         #search{
@@ -28,33 +30,72 @@
             display:inline-block;
             text-align:center;
             line-height:50px;
-            border:1px solid black;
-            /* background-color:red; */
+
         }
         /* 导航栏 */
         #navigation{
             height:25px;
-            border:1px solid black;
             margin-bottom:15px;
+            background-color:#E6E6E6;
+            margin-left:50px;
+            margin-right:50px;
         }
         .Navi{
             float:left;
             width:25%;
         }
-        /* 轮播图注释 */
+        a,a:visited{
+             text-decoration:none;  /* 链接的样式设置为无 */
+             color:black;
+        }
+        a:hover{
+             color:#FF6200;
+             text-decoration:none;
+             }
+
+        /* 视频注释 */
         #annotation{
             width:10%;
             float:left;
             height:300px;
-            border:1px solid green;
             position:absolute;
+            border:1px solid orange;
         }
-        /* 轮播图 */
+        #menu{
+            position:absolute;
+            border-top:0;
+            padding:0;
+            }
+        #menu li{
+            margin-top:10px;
+            display:block;
+            height:90px;
+            width:110%;
+            text-align:center;
+            z-index:1;
+            }
+        #menu li:hover{
+            color:#fff;
+            }
+        #menu li:hover  .cms_submenu{
+            left:100%;
+            border-top:0;
+            padding:0;
+            }
+        .cms_submenu{
+            border:2px solid #fff;
+            position:relative;
+            left:-999em;        /*隐藏元素*/
+            width:90px;
+            background:#fff;
+            color:#7EE697;
+            z-index:1;
+            }
+        /* 视频 */
         #slideshow{
-            width:89%;
+            width:90%;
             height:300px;
             float: left;
-            border:1px solid black;
             margin-left:10%;
             position:absolute;
         }
@@ -72,7 +113,8 @@
             float:left;
             width:25%;
             height:500px;
-            margin-left:75%;
+            margin-left:67%;
+            margin-right:50px;
             border:1px solid orange;
             position:absolute;
 
@@ -100,23 +142,51 @@
 </head>
 <body>
 <div id="global">
-
-    <div style="border:1px solid black;">
+    <div>
         <span id="Title" >gsonya-HTML</span>
-        <span id="search" >Type here to search</span>
+        <span id="search" >
+            <input type="search" name="search" placeholder="Type here to search">
+            <button type="submit">搜索</button>
+        </span>
     </div>
     <div id="navigation">
-        <div class="Navi">首页</div>
-        <div class="Navi">HTML笔记</div>
-        <div class="Navi">其它</div>
-        <div class="Navi">联系我</div>
+        <div class="Navi"><a  href="example.html" target="_top">首页</a></div>
+        <div class="Navi"><a  href="#sample">HTML实例</a></div>
+        <div class="Navi"><a  href="#">其它</a></div>
+        <div class="Navi"><a  href="#">联系我</a></div>
     </div>
-    <div  style="border:1px solid red;width:100%;height:500px;position: relative;">
-        <div style="float:left;/*border:1px solid red;*/width:70%;height:500px;position:relative" >
-            <div style="height:60%;position:relative" >
-                <div id="annotation" >轮播图解释
+    <div  style="width:100%;height:500px;position: relative;margin-left:50px">
+        <div style="float:left;width:63%;height:500px;position:relative" >
+            <div style="height:60%;position:relative;" >
+                <div id="annotation" >
+                    <ul id="menu">
+                         <li>图1
+                         <div class="cms_submenu">
+                            <dl class="menu_recommend">
+                                <dt></dt>
+                                    <dd style="font-size:20px;color:#7EE697">头像
+                                    </dd>
+                            </dl>
+                           </div>
+                           </li>
+                           <li>图2
+                                <div class="cms_submenu">
+                                    <dl class="menu_recommend">
+                                    <dd style="font-size:20px;color:#7EE697">blog</dd>
+                                    </dl>
+                                </div>
+                           </li>
+                           <li>图3
+                                <div class="cms_submenu">
+                                    <dl class="menu_recommend">
+                                    <dd style="font-size:20px;color:#7EE697">github</dd>
+                                    </dl>
+                                </div>
+                           </li>
+                    </ul>
                 </div>
-                <div id="slideshow">轮播图
+                <div id="slideshow">
+                    <embed src="image/video.mp4" width="100%" height="100%" style="margin-right:0px">
                 </div>
             </div>
             <div id="sample">HTML实例
@@ -128,7 +198,7 @@
             <div id="link">链接</div>
         </div>
     </div>
-    <footer id="footer">
+    <footer id="footer" style="margin-left:50px">
      &copy版权所有：gsonya
     </footer>
 </div>
