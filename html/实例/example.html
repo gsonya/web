@@ -37,6 +37,7 @@
             height:25px;
             margin-bottom:15px;
             background-color:#E6E6E6;
+            border:1px solid orange;
             margin-left:50px;
             margin-right:50px;
         }
@@ -53,18 +54,21 @@
              text-decoration:none;
              }
 
-        /* 视频注释 */
+        /* 轮播图注释 */
         #annotation{
             width:10%;
             float:left;
             height:300px;
             position:absolute;
             border:1px solid orange;
+            border-radius:5px 5px 5px 5px;      /*边框圆角*/
+            background-color:#E6E6E6;
         }
         #menu{
-            position:absolute;
             border-top:0;
             padding:0;
+            width:90%;
+            border-radius:5px 5px 5px 5px;
             }
         #menu li{
             margin-top:10px;
@@ -89,14 +93,69 @@
             width:90px;
             background:#fff;
             color:#7EE697;
-            z-index:1;
+            z-index:1;      /*图层*/
             }
-        /* 视频 */
+        /* 轮播图 */
         #slideshow{
             width:90%;
             height:300px;
-            float: left;
-            margin-left:10%;
+            margin-left:12%;
+            position:absolute;
+        }
+        #slideshow img{
+            width:95%;
+            height:300px;
+            position:absolute;
+            border-radius:5px 5px 5px 5px;
+        }
+        .d01{
+            width: 20px;
+            height: 20px;
+            box-sizing: border-box;
+            opacity:0.5;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 20px;
+            background-color: white;
+            z-index: 10;
+        }
+         #d1{
+            position:absolute;
+            right: 70px;
+            bottom: 10px;
+            border:1px solid black;
+        }
+        #d2{
+            position:absolute;
+            right: 40px;
+            bottom: 10px;
+            border:1px solid black;
+        }
+        #d3 {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            border:1px solid black;
+        }
+        #d1:hover ~ #img1{
+            z-index: 1;
+        }
+        #d1:hover{
+            opacity:1;      /*透明度*/
+        }
+        #d2:hover ~ #img2{
+            z-index: 1;
+        }
+        #d2:hover{
+            opacity:1;
+        }
+        #d3:hover ~ #img3{
+            z-index: 1;
+        }
+        #d3:hover{
+            opacity:1;
+        }
+        .img01{
             position:absolute;
         }
         /* HTML实例 */
@@ -104,39 +163,118 @@
             height:25%;
             width:100%;
             margin-top:48px;
-            border:1px solid greenyellow;
+            background-color:#E6E6E6;
             position:absolute;
             margin-bottom:38px;
+            border:1px solid orange;
+        }
+        .links{
+            width:20%;
+            height:30%;
+            font-size:15px;
+            margin-left:10px;
+            text-shadow:0px 0px 6px #FF6200;
+            text-align:center;
+            float:left;
         }
         /* 右侧栏 */
         #right-bar{
             float:left;
             width:25%;
-            height:500px;
+            height:480px;
             margin-left:67%;
             margin-right:50px;
             border:1px solid orange;
+            background-color:#E6E6E6;
             position:absolute;
 
         }
         #login{
             height:30%;
-            border:1px solid black;
         }
+        #name{
+            width:100%;
+            height:25px;
+            position:absolute;
+            margin-top:15px;
+            margin-left:25px;
+        }
+        #password{
+            width:100%;
+            height:30px;
+            position:absolute;
+            margin-top:45px;
+            margin-left:25px;
+        }
+        .ima{
+            width:12%;
+            height:25px;
+            float:left;
+            position:absolute;
+        }
+        .in{
+            width:65%;
+            height:18px;
+            float:left;
+            position:absolute;
+            margin-left:12%;
+        }
+        #but{
+            width:100%;
+            height:30px;
+            position:absolute;
+            margin-top:85px;
+        }
+        /*中间图*/
         #image{
             height:10%;
-            border:1px solid black;
         }
+        /*链接展示*/
         #link{
             height:55%;
-            border:1px solid black;
+            width:100%;
             margin-bottom:38px;
+            position:absolute;
+        }
+        #link-ch{
+            margin-top:5%;
+            height:10%;
+            text-shadow:0px 0px 6px #FF6200;
+            position:absolute;
+        }
+        #blog{
+            width:100%;
+            height:100px;
+            margin-top:18%;
+            position:absolute;
+        }
+        #github{
+            width:100%;
+            height:90px;
+            margin-top:50%;
+            position:absolute;
+        }
+        .link-image{
+            width:60px;
+            height:60px;
+            margin-left:45%;
+            position:absolute;
+        }
+        .link-text{
+            text-align:center;
+            font-size:10px;
+            width:100%;
+            height:30px;
+            position:absolute;
+            margin-top:23%;
+            text-shadow:0px 0px 6px #FF6200;
         }
         /* 底部 */
         #footer{
             width:100%;
-            border:1px solid black;
+            border:1px solid white;
             text-align:center;
+            background-color:#E6E6E6;
         }
     </style>
 </head>
@@ -150,7 +288,7 @@
         </span>
     </div>
     <div id="navigation">
-        <div class="Navi"><a  href="example.html" target="_top">首页</a></div>
+        <div class="Navi"><a  href="example.html" target="_top" style="margin-left:20px">首页</a></div>
         <div class="Navi"><a  href="#sample">HTML实例</a></div>
         <div class="Navi"><a  href="#">其它</a></div>
         <div class="Navi"><a  href="#">联系我</a></div>
@@ -163,7 +301,6 @@
                          <li>图1
                          <div class="cms_submenu">
                             <dl class="menu_recommend">
-                                <dt></dt>
                                     <dd style="font-size:20px;color:#7EE697">头像
                                     </dd>
                             </dl>
@@ -186,16 +323,59 @@
                     </ul>
                 </div>
                 <div id="slideshow">
-                    <embed src="image/video.mp4" width="100%" height="100%" style="margin-right:0px">
+                    <!-- <embed src="image/video.mp4" width="100%" height="100%" style="margin-right:0px"> --><!-- 可将内容换成video -->
+                    <div id="d1" class="d01">1</div>
+                    <div id="d2" class="d01">2</div>
+                    <div id="d3" class="d01">3</div>
+                    <img id="img1" class="img01" src="image/show.jpg">
+                    <img id="img2" class="img01" src="image/blog.png">
+                    <img id="img3" class="img01" src="image/git.png">
+                    <img id="img4" class="img01" src="image/show.jpg">
                 </div>
             </div>
-            <div id="sample">HTML实例
+            <div id="sample">
+                <h5 style="text-shadow:0px 0px 6px #FF6200;margin-top:0px; ">HTML实例</h5>
+                <div class="links"><a href="../link/show.html" target="_blank">link</a></div>
+                <div class="links"><a href="page.html" target="_blank">image</a></div>
+                <div class="links"><a href="page.html" target="_blank">form</a></div>
+                <div class="links"><a href="../frame/frame.html" target="_blank">frame</a></div>
+                <div class="links"><a href="../script/script.html" target="_blank">script</a></div>
+                <div class="links"><a href="../character/character.html" target="_blank">character</a></div>
+                <div class="links" ><a href="page.html" target="_blank">madia</a></div>
             </div>
         </div>
         <div id="right-bar">
-            <div id="login">登录</div>
-            <div id="image">图片</div>
-            <div id="link">链接</div>
+            <div id="login">
+                <div style="text-align:center">
+                    个人中心
+                </div>
+                <div id="name">
+                    <img src="image/user.jpg" class="ima">
+                    <input type="text" placeholder="username" class="in">
+                </div>
+                <div id="password">
+                    <img src="image/lock.jpg" class="ima">
+                    <input type="password" placeholder="password" class="in">
+                </div>
+                <div id="but">
+                    <button type="submit" style="position:absolute;margin-left:20%">提交</button>
+                    <button type="reset" style="position:absolute;margin-left:60%">重置</button>
+                </div>
+            </div>
+            <div id="image">
+                <img src="image/flower.jpg" style="height:100%;width:100%;">
+            </div>
+            <div id="link">
+                <div id="link-ch">gsonya链接</div>
+                <div id="blog">
+                    <img src="image/blog.png" class="link-image">
+                    <div class="link-text"><a href="https://blog.csdn.net/gsonya">gsonya-blog</a></div>
+                </div>
+                <div id="github">
+                    <img src="image/git.png" class="link-image">
+                    <div class="link-text"><a href="https://github.com/gsonya/web">gsonya-github</a></div>
+                </div>
+            </div>
         </div>
     </div>
     <footer id="footer" style="margin-left:50px">
