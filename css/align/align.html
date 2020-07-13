@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>css-slign</title>
+    <style type="text/css" media="screen">
+        body{
+            background-color:#ff6600;
+        }
+        span{
+            float:left;
+            font-size:300%;
+            line-height:80%;
+        }
+        #center{
+            margin:auto;
+            width:300px;
+            border:1px solid black;
+        }
+        #center1{
+            padding:50px;
+            text-align:center;
+            border:1px solid black;
+        }
+        #center2{
+            margin-top:5px;
+            height:100px;
+            line-height:100px;
+            text-align: center;
+            border:1px solid black;
+        }
+        #center3{
+            margin-top:5px;
+            height:100px;
+            position:relative;
+            border:1px solid black;
+        }
+        #center3 p{
+            margin:0;
+            position:absolute;
+            top:50%;
+            left: 50%;
+            transform:translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <h3>div块的居中</h3>
+    <div id="center">
+        <p>
+        <span>生</span>而为人，但从来没有人告诉你，你应该成为一个怎样的人。幼儿时期:在天真懵懂和温室下成长，不懂黑与白，不辨是与非,开心了就笑，得不到糖果就哭,世界都是围绕你转的.少年时期:开始有了学业的烦恼，但是没有生存的负担,喜欢的东西就买，不喜欢的科目就不做,任性是你的资本.成年时期:初出茅庐不懂社会的泥泞和沼泽，曾强出过头，也曾自以为是,曾以为一身的正气可以让自己活得骄傲自在,殊不知被现实当头一棒,在梦想与现实之间，在妥协于坚持之间,咬着牙而又艰难的生存着,生而为人，这一生，到底怎样才是有意义的？你心里的答案,你所有的坚持,你做过的梦,都在一个个实现了吗？人生的路很长,人生的路 也难走,但是,你必须做,生而为人,冷暖自知,但,勿忘初心，务必善良!
+        </p>
+    </div>
+    <h3>文本内容的水平垂直居中</h3>
+    <div id="center1">padding和text-align设置的水平垂直居中</div>
+    <div id="center2">line-height和text-align设置的水平垂直居中</div>
+    <div id="center3"><p>position和transform设置的水平垂直居中</p></div>
+</body>
+</html>
