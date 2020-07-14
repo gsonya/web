@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>css-navigation</title>
+    <style type="text/css" media="screen">
+        #vertical{
+            width:30%;
+            height:300px;
+        }
+        #vertical ul{
+            list-style-type:none;
+            margin:0px;
+            padding:0px;
+            overflow:hidden;
+            background-color:#9ACD32;
+        }
+        #vertical ul li{
+            border-bottom:1px solid black;
+        }
+        #vertical ul li a,.droptn1{
+            padding:20px;
+            display:block;
+            text-decoration:none;
+        }
+        #vertical ul li a:hover:not(.active),.dropdown1:hover{
+            color:#9ACD32;
+            background-color:#FFFF00;
+        }
+        .dropdown-content1{
+            width:100px;
+            display:none;
+            text-align:center;
+            background-color:#0000CD;
+            position:absolute;
+            box-shadow:0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown-content1 a{
+            color:orange;
+            display:block;
+            text-decoration:none;
+        }
+        .dropdown1:hover .dropdown-content1{
+            display:inline-block;
+        }
+        .active{
+            color:#9ACD32;
+            background-color:#FFFF00;
+        }
+
+        #level{
+            width:100%;
+            height:200px;
+        }
+        #level ul{
+            list-style-type:none;
+            margin:0px;
+            padding:0px;
+            overflow:hidden;
+            background-color:#9ACD32;
+            border:1px solid black;
+        }
+        #level ul li{
+            margin-right:50px;
+            float:left;
+        }
+        #level ul li a,.droptn2{
+            padding:20px;
+            display:inline-block;
+            text-decoration:none;
+        }
+        #level ul li a:hover:not(.active),.dropdown2:hover,.dropbtn2{
+            color:#9ACD32;
+            background-color:#FFFF00;
+        }
+        .dropdown2{
+            display:inline-block;
+        }
+        .dropdown-content2{
+            width:100px;
+            display:none;
+            text-align:center;
+            background-color:#0000CD;
+            position:absolute;
+            box-shadow:0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .dropdown-content2 a{
+            color:orange;
+            display:block;
+            text-decoration:none;
+        }
+        .dropdown-content2 a:hover{
+            background-color:green;
+        }
+        .dropdown2:hover .dropdown-content2{
+            display:block;
+        }
+    </style>
+</head>
+<body>
+    <h1>垂直导航栏</h1>
+        <div id="vertical">
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">动态</a></li>
+                <li><a href="#">资源</a></li>
+                <div class="dropdown1">
+                    <a href="#" class="droptn1">关于</a>
+                    <div class="dropdown-content1">
+                        <a href="#">博客</a><br>
+                        <a href="#">github</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    <h1>水平导航栏</h1>
+        <div id="level">
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">动态</a></li>
+                <li><a href="#">资源</a></li>
+                <div class="dropdown2">
+                    <a href="#" class="droptn2">关于</a>
+                    <div class="dropdown-content2">
+                        <a href="#">博客</a><br>
+                        <a href="#">github</a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+
+</body>
+</html>
