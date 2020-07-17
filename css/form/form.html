@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>css-form</title>
+    <style type="text/css" media="screen">
+        /* 计数器 */
+        body{
+            counter-reset:section;
+        }
+        label::before{
+            counter-increment:section;
+            content:counter(section) ".";
+        }
+        /* 边框问题 */
+        * {
+          box-sizing: border-box;
+        }
+        input[type=text], select, textarea {
+          width: 50%;
+          padding: 12px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          resize: vertical;
+          -webkit-transition:width 0.4s ease-in-out;  /*动画效果*/
+          transition:width 0.4s ease-in-out;
+        }
+        /* 聚焦 */
+        input[type=text]:focus{
+            background-color:lightblue;
+            width:100%;
+        }
+        label {
+          padding: 12px 12px 12px 0;
+          display: inline-block;
+        }
+        input[type=submit] {
+          background-color: #4CAF50;
+          color: white;
+          padding: 12px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          float: right;
+        }
+
+        input[type=submit]:hover {
+          background-color: #45a049;
+        }
+
+        .container {
+          border-radius: 5px;
+          background-color: #f2f2f2;
+          padding: 10px;
+        }
+
+        .col-25 {
+          float: left;
+          width: 20%;
+          margin-top: 6px;
+        }
+
+        .col-75 {
+          float: left;
+          width: 75%;
+          margin-top: 6px;
+        }
+
+        /* 清除浮动 */
+        .row:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+
+        /* 响应式布局 layout - 在屏幕宽度小于 600px 时， 设置为上下堆叠元素 */
+        @media screen and (max-width: 600px) {
+          .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+          }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">您的姓名</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="name" name="name" placeholder="Your name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="gender">您的性别</label>
+                </div>
+                <div class="col-75">
+                    <input type="radio" name="gender" value="male">male
+                    <input type="radio" name="gender" value="female">female
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="interest">您的爱好</label>
+                </div>
+                <div class="col-75">
+                    <input type="checkbox" name="interest" value="basketball">basktball
+                    <input type="checkbox" name="interest" value="football">football
+                    <input type="checkbox" name="interest" value="tennis">tennis
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="interest">您所在国家</label>
+                </div>
+                <div class="col-75">
+                    <select name="country" id="country">
+                        <option value="China">China</option>
+                        <option value="Australia">Australia</option>
+                        <option value="Canada">Canada</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="name">详细地址</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="address" name="address" placeholder="Your address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="other">其它</label>
+                </div>
+                <div class="col-75">
+                    <textarea name="other" id="other" placeholder="Write something" style="height: 120px;"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
