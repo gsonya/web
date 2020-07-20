@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>gsonya-HTML</title>
+    <style type="text/css" media="screen">
+        /* 全局设置 */
+        body{
+            overflow:auto;
+            background-color:#FFB3B3;
+        }
+        *{
+            box-sizing:border-box;
+        }
+        [class*="col-"]{
+            float:left;
+            padding:20px;
+        }
+        [class*="col-"]{
+            width:100%;
+        }
+        @media only screen and (orientation:portrait){
+            body{
+                background-color:lightblue;
+            }
+        }
+        @media only screen and (min-width: 600px){
+            .col-m-1 {width:8.33%;}
+            .col-m-2 {width:16.66%;}
+            .col-m-3 {width: 25%;}
+            .col-m-4 {width: 33.33%;}
+            .col-m-5 {width: 41.66%;}
+            .col-m-6 {width: 50%;}
+            .col-m-7 {width: 58.33%;}
+            .col-m-8 {width: 66.66%;}
+            .col-m-9 {width: 75%;}
+            .col-m-10 {width: 83.33%;}
+            .col-m-11 {width: 91.66%;}
+            .col-m-12 {width: 100%;}
+        }
+        @media only screen and (min-width: 768px){
+            .col-1 {width:8.33%;}
+            .col-2 {width: 16.66%;}
+            .col-3 {width: 25%;}
+            .col-4 {width: 33.33%;}
+            .col-5 {width: 41.66%;}
+            .col-6 {width: 50%;}
+            .col-7 {width: 58.33%;}
+            .col-8 {width: 66.66%;}
+            .col-9 {width: 75%;}
+            .col-10 {width: 83.33%;}
+            .col-11 {width: 91.66%;}
+            .col-12 {width: 100%;}
+        }
+        .row:after{
+            content:"";
+            clear:both;
+            display:block;
+        }
+        /* 标题 */
+        #Title{
+            width:50%;
+            height:50px;
+            display:inline-block;       /*行级元素拥有块级元素属性*/
+            line-height:50px;           /*垂直居中*/
+            font-size:40px;
+            margin-left:50px;
+            /* text-shadow:7px 2px 6px #FF6200;     /*设置字体阴影*/ */
+        }
+        /* 搜索框 */
+        #search{
+            width:35%;
+            height:50px;
+            display:inline-block;
+            text-align:center;
+            line-height:50px;
+
+        }
+        /* 导航栏 */
+        #navigation{
+            height:60px;
+        }
+        /*轮播图注释*/
+        #annotation{
+            height:520px;
+            text-align:center;
+            background-color:#FFE9E9;
+        }
+        /*轮播图*/
+        #slideshow{
+            position:relative;
+            height:520px;
+        }
+        #slideshow img{
+            position:absolute;
+            border-radius:5px 5px 5px 5px;
+        }
+        .d01{
+            width: 20px;
+            height: 20px;
+            box-sizing: border-box;
+            opacity:0.5;
+            line-height: 20px;
+            text-align: center;
+            border-radius: 20px;
+            background-color: white;
+            z-index: 10;
+        }
+         #d1{
+            position:absolute;
+            right: 70px;
+            bottom: 50px;
+            border:1px solid black;
+        }
+        #d2{
+            position:absolute;
+            right: 40px;
+            bottom: 50px;
+            border:1px solid black;
+        }
+        #d3 {
+            position: absolute;
+            right: 10px;
+            bottom: 50px;
+            border:1px solid black;
+        }
+        #d1:hover ~ #img1{
+            z-index: 1;
+        }
+        #d1:hover{
+            opacity:1;
+        }
+        #d2:hover ~ #img2{
+            z-index: 1;
+        }
+        #d2:hover{
+            opacity:1;
+        }
+        #d3:hover ~ #img3{
+            z-index: 1;
+        }
+        #d3:hover{
+            opacity:1;
+        }
+        .img01{
+            position:absolute;
+            height:500px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <span id="Title" >gsonya-HTML</span>
+        <span id="search" >
+            <input type="search" name="search" placeholder="Type here to search">
+            <button type="submit">搜索</button>
+        </span>
+    </div>
+    <div class="row" id="navigation">
+        <div class="col-3 col-m-3"><a  href="example.html" target="_top">首页</a></div>
+        <div class="col-3 col-m-6"><a  href="#">实例</a></div>
+        <div class="col-3 col-m-9"><a  href="#">源码地址</a></div>
+        <div class="col-3 col-m-12"><a  href="#">其它</a></div>
+    </div>
+    <div class="row">
+            <div id="annotation" class="col-2 col-m-2">
+                <h3>头像</h3>
+                <h3>博客</h3>
+                <h3>GitHub</h3>
+            </div>
+            <div id="slideshow" class="col-10 col-m-12">
+                <div id="d1" class="d01">1</div>
+                <div id="d2" class="d01">2</div>
+                <div id="d3" class="d01">3</div>
+                <img id="img1" class="img01" src="image/show.jpg">
+                <img id="img2" class="img01" src="image/blog.png">
+                <img id="img3" class="img01" src="image/git.png">
+                <img id="img4" class="img01" src="image/show.jpg">
+            </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-m-12" style="border:1px solid black;text-align:center">css实例</div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-m-3">align</div>
+        <div class="col-3 col-m-6">background</div>
+        <div class="col-3 col-m-9">box</div>
+        <div class="col-3 col-m-12">form</div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-m-3">image</div>
+        <div class="col-3 col-m-6">link</div>
+        <div class="col-3 col-m-9">navigation</div>
+        <div class="col-3 col-m-12">position</div>
+    </div>
+    <div class="row">
+        <div class="col-3 col-m-3">response</div>
+        <div class="col-3 col-m-6">toltip</div>
+        <div class="col-3 col-m-9"></div>
+        <div class="col-3 col-m-12"></div>
+    </div>
+    <div class="footer">footer</div>
+
+</body>
+</html>
