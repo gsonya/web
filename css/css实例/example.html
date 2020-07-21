@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>gsonya-HTML</title>
+    <title>gsonya-CSS</title>
     <style type="text/css" media="screen">
         /* 全局设置 */
         body{
             overflow:auto;
+            padding:15px;
             background-color:#FFB3B3;
         }
         *{
@@ -22,20 +23,6 @@
             body{
                 background-color:lightblue;
             }
-        }
-        @media only screen and (min-width: 600px){
-            .col-m-1 {width:8.33%;}
-            .col-m-2 {width:16.66%;}
-            .col-m-3 {width: 25%;}
-            .col-m-4 {width: 33.33%;}
-            .col-m-5 {width: 41.66%;}
-            .col-m-6 {width: 50%;}
-            .col-m-7 {width: 58.33%;}
-            .col-m-8 {width: 66.66%;}
-            .col-m-9 {width: 75%;}
-            .col-m-10 {width: 83.33%;}
-            .col-m-11 {width: 91.66%;}
-            .col-m-12 {width: 100%;}
         }
         @media only screen and (min-width: 768px){
             .col-1 {width:8.33%;}
@@ -75,15 +62,87 @@
             line-height:50px;
 
         }
+        input[type=search]{
+            resize: vertical;
+             -webkit-transition:width 0.4s ease-in-out;  /*动画效果*/
+            transition:width 0.4s ease-in-out;
+        }
+        input[type=search]:focus{
+            background-color:#FF7272;
+            width:60%;
+        }
+        button[type=submit]:hover{
+            background-color:#FF7272;
+        }
         /* 导航栏 */
         #navigation{
-            height:60px;
+            background-color:#FFE9E9;
+            text-align:center;
+        }
+        #navigation a{
+            text-decoration:none;
+            display:inline-block;
+            padding:10px;
+            color:black;
+        }
+        #navigation a:hover:not(#active){
+            color:white;
+            background-color:#FF7272;
+        }
+        #active a{
+            color:white;
+            background-color:#FF7272;
         }
         /*轮播图注释*/
         #annotation{
             height:520px;
-            text-align:center;
             background-color:#FFE9E9;
+            margin-top:20px;
+            margin-bottom:20px;
+            padding:15px 0px;"
+        }
+        .T1{
+            display:inline-block;
+            text-align:center;
+            position:relative;
+            cursor:help;
+            padding:15px;
+        }
+        .select1{
+            margin:60px 0 0 60px;
+            display:inline-block;
+        }
+        .select1:hover{
+            color:#FF7272;
+        }
+        .text1{
+            visibility:hidden;
+            width:240px;
+            background-color:#FF7272;
+            color:black;
+            border-radius:6px;
+            padding:10px 0;
+            position:absolute;
+            opacity:0;
+            transition:opacity 2s;
+            left:110%;
+            text-align:left;
+
+        }
+        .text1::after{
+            content:"";
+            position:absolute;
+            top:50%;
+            margin-top:-5px;
+            border-width:5px;
+            border-style:solid;
+            right:100%;
+            border-color:transparent #FF7272 transparent transparent ;
+        }
+        .T1:hover .text1{
+            visibility:visible;
+            opacity:1;
+            z-index: 1;
         }
         /*轮播图*/
         #slideshow{
@@ -104,23 +163,24 @@
             border-radius: 20px;
             background-color: white;
             z-index: 10;
+            cursor:pointer;
         }
          #d1{
             position:absolute;
             right: 70px;
-            bottom: 50px;
+            bottom: 20px;
             border:1px solid black;
         }
         #d2{
             position:absolute;
             right: 40px;
-            bottom: 50px;
+            bottom: 20px;
             border:1px solid black;
         }
         #d3 {
             position: absolute;
             right: 10px;
-            bottom: 50px;
+            bottom: 20px;
             border:1px solid black;
         }
         #d1:hover ~ #img1{
@@ -143,31 +203,42 @@
         }
         .img01{
             position:absolute;
-            height:500px;
+            height:520px;
+            width:90%;
+            cursor:pointer;
         }
     </style>
 </head>
 <body>
     <div id="header">
-        <span id="Title" >gsonya-HTML</span>
+        <span id="Title" >gsonya-CSS</span>
         <span id="search" >
             <input type="search" name="search" placeholder="Type here to search">
             <button type="submit">搜索</button>
         </span>
     </div>
     <div class="row" id="navigation">
-        <div class="col-3 col-m-3"><a  href="example.html" target="_top">首页</a></div>
-        <div class="col-3 col-m-6"><a  href="#">实例</a></div>
-        <div class="col-3 col-m-9"><a  href="#">源码地址</a></div>
-        <div class="col-3 col-m-12"><a  href="#">其它</a></div>
+        <div class="col-3" id="active" style="padding:0"><a  href="example.html" target="_top">首页</a></div>
+        <div class="col-3" style="padding:0"><a  href="#sample">实例</a></div>
+        <div class="col-3" style="padding:0"><a  href="https://github.com/gsonya/web">源码地址</a></div>
+        <div class="col-3" style="padding:0"><a  href="#">其它</a></div>
     </div>
     <div class="row">
-            <div id="annotation" class="col-2 col-m-2">
-                <h3>头像</h3>
-                <h3>博客</h3>
-                <h3>GitHub</h3>
+            <div id="annotation" class="col-2">
+                <div class="T1">
+                    <span class="select1">头像</span>
+                    <span class="text1">&nbsp&nbsp&nbsp&nbsp头像整体形象是一个粉色的小人拿着一颗心。这个头像是在网上无意中找到的，然后觉得毛茸茸的，而且还微笑着，看着很是喜欢，所以用作头像。看到它就会觉得很开心，也希望一直都能够开心地做自己喜欢做的事</span>
+                </div>
+                <div class="T1">
+                    <span class="select1">博客</span>
+                    <span class="text1">&nbsp&nbsp&nbsp&nbsp博客开始写于2020年4月17日，刚开始是想记录自己前端遇到的一些错误，后来觉得自己有必要深入学习前端的基础知识，所以开始记录自己前端所学笔记和一些自己写的例子。</span>
+                </div>
+                <div class="T1">
+                    <span class="select1">GitHub</span>
+                    <span class="text1">&nbsp&nbsp&nbsp&nbspGitHub上的web仓库中主要记录自己前端所学内容的一些代码，包括自己学习知识点时的一些典型例子，还有自己所写的原型设计和实例的相关代码。</span>
+                </div>
             </div>
-            <div id="slideshow" class="col-10 col-m-12">
+            <div id="slideshow" class="col-10">
                 <div id="d1" class="d01">1</div>
                 <div id="d2" class="d01">2</div>
                 <div id="d3" class="d01">3</div>
@@ -177,26 +248,26 @@
                 <img id="img4" class="img01" src="image/show.jpg">
             </div>
     </div>
-    <div class="row">
-        <div class="col-12 col-m-12" style="border:1px solid black;text-align:center">css实例</div>
+    <div class="row" id="sample">
+        <div class="col-12" style="background-color:#FFE9E9;text-align:center;border-radius:5px 5px 5px 5px;"><b><i>css实例</i></b></div>
     </div>
     <div class="row">
-        <div class="col-3 col-m-3">align</div>
-        <div class="col-3 col-m-6">background</div>
-        <div class="col-3 col-m-9">box</div>
-        <div class="col-3 col-m-12">form</div>
+        <div class="col-3">align</div>
+        <div class="col-3">background</div>
+        <div class="col-3">box</div>
+        <div class="col-3">form</div>
     </div>
     <div class="row">
-        <div class="col-3 col-m-3">image</div>
-        <div class="col-3 col-m-6">link</div>
-        <div class="col-3 col-m-9">navigation</div>
-        <div class="col-3 col-m-12">position</div>
+        <div class="col-3">image</div>
+        <div class="col-3">link</div>
+        <div class="col-3">navigation</div>
+        <div class="col-3">position</div>
     </div>
     <div class="row">
-        <div class="col-3 col-m-3">response</div>
-        <div class="col-3 col-m-6">toltip</div>
-        <div class="col-3 col-m-9"></div>
-        <div class="col-3 col-m-12"></div>
+        <div class="col-3">response</div>
+        <div class="col-3">toltip</div>
+        <div class="col-3"></div>
+        <div class="col-3"></div>
     </div>
     <div class="footer">footer</div>
 
