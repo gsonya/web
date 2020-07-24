@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-demo</title>
+    <style type="text/css" media="screen">
+        body{
+            background-color:lightskyblue;
+            text-align:center;
+        }
+        #image{
+            width:200px;
+            height:200px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="#"><br>
+    <input id="demo" type="text">
+    <button type="button" onclick="myFunction()">点击</button>
+    <p id="txt">填入数字1可查看头像，填入数字2可查看博客图片，填入数字3可以查看GitHub图片</p>
+    <script>
+        function myFunction(){
+            var x=document.getElementById("demo").value;
+            if(x==1){
+                var y=document.getElementById("image");
+                y.src="image/show.jpg";
+            }
+            else if(x==2){
+                var y=document.getElementById("image");
+                y.src="image/blog.png";
+            }
+            else if(x==3){
+                var y=document.getElementById("image");
+                y.src="image/git.png";
+            }
+            else{
+                alert("不符合要求!")
+            }
+            var z=document.getElementById("txt");
+            z.style.color="orange";
+
+        }
+    </script>
+</body>
+</html>
