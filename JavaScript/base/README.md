@@ -25,3 +25,15 @@
 ##### （6）switch：switch ( n ) { case 1:代码 break;case 1:代码 break;default:代码 } 
 
 ##### （7）for:for ( var i=0;i<n;i++ ) ;for ( x in person ) 
+
+##### （8）while：while ( 条件 ) { 代码 }  、do { 代码 } 
+
+##### （9）break 语句用于跳出循环。continue 用于跳过循环中的一个迭代
+
+##### （10）类型：
+
+##### a.( 2 ) .constructor用于返回数字2的类型
+
+##### b.将数字转换成字符串并返回结果：String ( 9 )
+
+##### c.将字符串转换成数字：Number ( "9" )、x = + "9"
