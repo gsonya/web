@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-regex</title>
+    <style type="text/css">
+        body{
+            background-color:lightgreen;
+        }
+        div{
+            margin:20px 10px;
+        }
+        button:hover{
+            background-color:#009900;
+        }
+        .st{
+            border:1px solid black;
+            background-color:white;
+            width:200px;
+            height:20px;
+            font-size:14px;
+            color:gray;
+            display: inline-block;
+        }
+        input:focus{
+            background-color:yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo">This is a desk.I like this desk!</p>
+    <div>
+        <span>测试内容：</span><input type="text" id="input0" placeholder="请输入需要测试的字符串"><button type="submit" onclick="myFunction1()">查找</button><br>
+        <span>测试结果：</span><span class="st" id="search">search结果显示</span>
+    </div>
+    <div>
+        <button onclick="myFunction2()">this变为that</button>
+    </div>
+    <div>
+        <span>测试内容：</span><input type="text" id="input1" placeholder="请输入需要测试的字符串"><button type="submit" onclick="myFunction3()">提交</button><br>
+        <span>测试结果：</span><span class="st" id="input2">test结果显示</span>
+    </div>
+    <div>
+        <span>测试内容：</span><input type="text" id="input3" placeholder="请输入需要测试的字符串"><button type="submit" onclick="myFunction4()">提交</button><br>
+        <span>测试结果：</span><span class="st" id="input4">exec结果显示</span>
+    </div>
+    <script>
+        //search()
+        function myFunction1(){
+            var str1=document.getElementById("demo").innerHTML;
+            var txt=document.getElementById("input0").value;
+            if(/^[a-zA-Z]+$/.test(txt)==true){
+                var patt0=new RegExp(txt,"i");
+                var strr0=str1.search(patt0);
+                document.getElementById("search").innerHTML=strr0;
+            }
+            else document.getElementById("search").innerHTML="输入错误！";
+        }
+        //replace()
+        function myFunction2(){
+            var str2=document.getElementById("demo").innerHTML;
+            var txt0=str2.replace(/this/i,"that");
+            // var txt=str2.replace(/this/gi,"that");   //g可将所有this一次性全部替换为that
+            document.getElementById("demo").innerHTML=txt0;
+        }
+        //test()
+        function myFunction3(){
+            var str3=document.getElementById("demo").innerHTML;
+            var txt1=document.getElementById("input1").value;
+            if(/^[a-zA-Z]+$/.test(txt1)==true){
+                var patt=new RegExp(txt1);
+                var strr=patt.test(str3);
+                if(strr==true){
+                    document.getElementById("input2").innerHTML="含有该字符串 ";
+                }
+                else{
+                    document.getElementById("input2").innerHTML="不含该字符串 ";
+                }
+            }
+            else document.getElementById("input2").innerHTML="输入错误！";
+        }
+        //exec()
+        function myFunction4(){
+            var str4=document.getElementById("demo").innerHTML;
+            var txt2=document.getElementById("input3").value;
+            if(/^[a-zA-Z]+$/.test(txt2)==true){
+                var patt1=new RegExp(txt2);
+                var strr1=patt1.exec(str4);
+                if(strr1==null){
+                    document.getElementById("input4").innerHTML="未找到该字符！";
+                }
+                else document.getElementById("input4").innerHTML=strr1;
+            }
+            else document.getElementById("input4").innerHTML="输入错误！";
+        }
+    </script>
+
+</body>
+</html>
