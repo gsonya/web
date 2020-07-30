@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>css-error</title>
+    <style type="text/css">
+        body{
+            background-color:lightskyblue;
+        }
+        button:hover{
+            background-color:blue;
+        }
+    </style>
+</head>
+<body>
+    <p>请输入5~10之间的数字</p>
+    <input type="text" id="text">
+    <button type="submit" onclick="myFunction()">提交</button>
+    <script>
+        function myFunction(){
+            var x=document.getElementById("text").value;
+            try{
+                if(x=="") throw "值为空！";
+                if(isNaN(x)) throw "值非数字！";
+                x=Number(x);
+                if(x>10) throw "值太大！";
+                if(x<5) throw "值太小！"
+            }catch(error){
+                alert("error\n\n 错误信息："+error)
+            }
+            finally{
+                document.getElementById("text").value="";
+            }
+        }
+    </script>
+</body>
+</html>
