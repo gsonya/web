@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>css-verify</title>
+    <style type="text/css">
+        body{
+            background-color:lightgreen;
+        }
+        button:hover{
+            background-color:green;
+        }
+    </style>
+</head>
+<body>
+    <form >
+        姓名（表单验证）
+        <input type="text" name="name" required="required">
+        <button type="submit">提交</button>
+    </form>
+        年龄（验证API）
+        <input id="id" type="number" min="0" max="200" required>
+        <button type="submit" onclick="myFunction()">提交</button>
+   <form name="myForm" onsubmit="return validateForm();">
+        Email（表单验证）
+        <input type="text" name="email">
+        <button type="submit" >提交</button>
+</form>
+    <script>
+        //姓名
+        function myFunction(){
+            var obj=document.getElementById("id");
+            if(!isNumeric(obj.value)){
+                alert("输入值非数字！");
+            }
+            else if(obj.validity.rangeUnderflow){
+                alert("输入值太小！");
+            }
+            else if(obj.validity.rangeOverflow){
+                alert("输入值太大！");
+            }
+            else {
+                alert("正确！");
+            }
+
+        }
+        //判断是否为数字
+        function isNumeric(n) {
+            return !isNaN(parseFloat(n)) && isFinite(n);
+        }
+        //Email
+        function validateForm(){
+            var x=document.forms["myForm"]["email"].value;
+            var atpos=x.indexOf("@");
+            var dotpos=x.lastIndexOf(".");
+            if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+                alert("不是一个有效的 e-mail 地址");
+                return false;
+        }
+}
+    </script>
+</body>
+</html>
