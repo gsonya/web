@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-json</title>
+</head>
+<body>
+    <p id="demo"></p>
+    <script>
+        var text='{"sites":['+'{"name":"blog","url":"https://blog.csdn.net/gsonya"},'+'{"name":"github","url":"https://github.com/gsonya/web"}]}';
+        obj=JSON.parse(text);
+        document.getElementById("demo").innerHTML=obj.sites[1].name+"  "+obj.sites[1].url;
+    </script>
+</body>
+</html>

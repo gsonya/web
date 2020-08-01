@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-keyword</title>
+</head>
+<body>
+    <p>this</p>
+    <p id="d1"></p>
+    <script>
+        var person1={
+            fullName:function(){
+                return this.firstName+" "+this.lastName;
+            }
+        }
+        var person2={
+            firstName:"John",
+            lastName:"Doe",
+        }
+        var x=person1.fullName.call(person2);
+        document.getElementById("d1").innerHTML=x;
+    </script>
+
+</body>
+</html>
