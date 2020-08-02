@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-asynchronous</title>
+</head>
+<body>
+    <p>回调函数3秒后执行</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p>当多次调用异步函数可用promise</p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <script>
+        setTimeout(function(){
+            document.getElementById("demo1").innerHTML="text1";
+        },3000);
+        document.getElementById("demo2").innerHTML="text2";
+        new Promise(function (resolve,reject){
+            setTimeout(function(){
+                document.getElementById("demo3").innerHTML="text3";
+                resolve()
+            },1000);
+        }).then(function(){
+            return new Promise(function(resolve,reject){
+                setTimeout(function(){
+                    document.getElementById("demo4").innerHTML="text4";
+                    resolve();
+                },3000);
+            }).then(function(){
+                setTimeout(function(){
+                    document.getElementById("demo5").innerHTML="text5";
+                },5000);
+            })
+        })
+    </script>
+
+</body>
+</html>
