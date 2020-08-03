@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-promise</title>
+</head>
+<body>
+    <h3>请在下面方框内输入两个数字</h3>
+    <p><span id="s1"></span><input id="input1" type="text"></p>
+    <p><span id="s2"></span><input id="input2" type="text"></p>
+    <button type="submit" onclick="myFunction1()">+</button>
+    <button type="submit" onclick="myFunction2()">-</button>
+    <button type="submit" onclick="myFunction3()">*</button>
+    <button type="submit" onclick="myFunction4()">/</button>
+    <p id="demo"></p>
+    <script>
+        function myFunction1(){
+            new Promise(function(resolve,reject){
+                var a=document.getElementById("input1").value;
+                var b=document.getElementById("input2").value;
+                resolve(Number(a)+Number(b));
+            }).then(function(value){
+                var txt="加数+加数="+value;
+                document.getElementById("s1").innerHTML="加数:";
+                document.getElementById("s2").innerHTML="加数:";
+                document.getElementById("demo").innerHTML=txt;
+            }).catch(function(err){
+                alert(err);
+            }).finally(function(){
+                console.log("End");
+            })
+        }
+        function myFunction2(){
+            new Promise(function(resolve,reject){
+                var a=document.getElementById("input1").value;
+                var b=document.getElementById("input2").value;
+                resolve(a-b);
+            }).then(function(value){
+                var txt="被减数-减数="+value;
+                document.getElementById("s1").innerHTML="被减数:";
+                document.getElementById("s2").innerHTML="减数:";
+                document.getElementById("demo").innerHTML=txt;
+            }).catch(function(err){
+                alert(err);
+            }).finally(function(){
+                console.log("End");
+            })
+        }
+        function myFunction3(){
+            new Promise(function(resolve,reject){
+                var a=document.getElementById("input1").value;
+                var b=document.getElementById("input2").value;
+                resolve(a*b);
+            }).then(function(value){
+                var txt="乘数*乘数="+value;
+                document.getElementById("s1").innerHTML="乘数:";
+                document.getElementById("s2").innerHTML="乘数:";
+                document.getElementById("demo").innerHTML=txt;
+            }).catch(function(err){
+                alert(err);
+            }).finally(function(){
+                console.log("End");
+            })
+        }
+        function myFunction4(){
+            new Promise(function(resolve,reject){
+                var a=document.getElementById("input1").value;
+                var b=document.getElementById("input2").value;
+                if(b==0)reject("除数不能为零!");
+                else resolve(a/b);
+            }).then(function(value){
+                var txt="被除数/除数="+value;
+                document.getElementById("s1").innerHTML="被除数:";
+                document.getElementById("s2").innerHTML="除数:";
+                document.getElementById("demo").innerHTML=txt;
+            }).catch(function(err){
+                alert(err);
+            }).finally(function(){
+                console.log("End");
+            })
+        }
+    </script>
+
+</body>
+</html>
