@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascipt-functions</title>
+    <style type="text/css">
+        body{
+            background-color:#F08080;
+        }
+        .tt{
+            width:100%;
+            height:50px;
+            line-height:50px;
+            border-left:10px solid  #e6cf00;
+            background-color:#FFFACD;
+        }
+        button{
+            background-color:#FF7F50;
+            margin:10px 0;
+            padding:5px;
+        }
+        button:hover{
+            background-color:#ff4400;
+        }
+    </style>
+</head>
+<body>
+    输出：<p id="demo" class="tt"></p>
+    相关内容：<p id="txt" class="tt"></p>
+    <button type="submit" onclick="myFunction1()">函数存储在变量x中</button>
+    <button type="submit" onclick="myFunction2()">变量可作为函数使用</button>
+    <button type="submit" onclick="myFunction3()">内置构造函数</button><br>
+    <button type="submit" onclick="myFunction4()">自调用函数</button>
+    <button type="submit" onclick="myFunction5()">函数可作为一个值使用</button>
+    <button type="submit" onclick="myFunction6()">函数有属性和方法</button>
+    <button type="submit" onclick="myFunction7()">箭头函数</button>
+    <script>
+        function myFunction1(){
+            var x=function(a,b){return a*b};
+            document.getElementById("demo").innerHTML=x;
+            document.getElementById("txt").innerHTML="函数存储在变量x中，打印x";
+        }
+        function myFunction2(){
+            var x=function(a,b){return a*b};
+            document.getElementById("demo").innerHTML=x(2,3);
+            document.getElementById("txt").innerHTML="函数存储在变量x中后，变量可作为函数使用，打印x(2,3)";
+        }
+        function myFunction3(){
+            var myFunction = new Function("a","b","return a*b");
+            document.getElementById("demo").innerHTML=myFunction(2,3);
+            document.getElementById("txt").innerHTML="通过内置的函数构造器new一个函数存储在myFunction中，打印myFunction(2,3)";
+        }
+        function myFunction4(){
+            (function(){
+                document.getElementById("demo").innerHTML="自调用函数";
+                document.getElementById("txt").innerHTML="函数表达式可以自调用，通过添加括号来说明它是一个函数表达式，该函数实际上是一个匿名自我调用函数（没有函数名）";
+            })();
+        }
+        function myFunction5(){
+            function myFunction(a,b){
+                return a*b;
+            }
+            document.getElementById("demo").innerHTML=myFunction(2,3)*6;
+            document.getElementById("txt").innerHTML="函数可以作为一个值使用，打印myFunction(2,3)*6";
+        }
+        function myFunction6(){
+            function myFunctionL(a,b){
+                return arguments.length;
+            }
+            document.getElementById("demo").innerHTML=myFunctionL(2,3)+"  "+myFunctionL.toString();
+            document.getElementById("txt").innerHTML="函数类型为function，但函数跟对象一样有属性和方法，打印myFunctionL(2,3)+'  '+myFunctionL.toString()";
+        }
+        function myFunction7(){
+            const y=(a,b)=>a*b;
+            //const y=(a,b)=>{return a*b};   //效果相同
+            document.getElementById("demo").innerHTML=y(2,3);
+            document.getElementById("txt").innerHTML="箭头函数中const比var更安全，因为函数表达式始终是一个常量，如果函数部分只是一个语句，则可以省略return关键字和大括号{}";
+        }
+    </script>
+
+</body>
+</html>
