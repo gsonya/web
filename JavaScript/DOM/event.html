@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-event</title>
+    <style type="text/css">
+        div{
+            margin:10px;
+            padding:10px;
+        }
+        body{
+            background-color:#339966;
+        }
+    </style>
+</head>
+<body onload="checkCookies()">
+    <div><span>对事件做出反应(点击变成提交)：</span><button onmousedown="style.background='skyblue'" onmouseup="style.background='#3333ff'" onclick="this.innerHTML='提交'">点击</button></div>
+    <div><span>小写字母变大写字母：</span><input type="text" id="id0" onchange="myFunction()" onfocus="myFunction0(this)"></div>
+    <div><span id="txt1">事件属性：</span><button onclick="displayDate('txt1')">点击</button></div>
+    <div><span id="txt2">分配事件：</span><button id="bt">点击</button></div>
+    <div id="demo" onmouseover="style.border='1px solid blue'" onmouseout="style.border='1px solid green'"></div>
+    <script>
+        function myFunction(){
+            var x=document.getElementById("id0");
+            x.value=x.value.toUpperCase();
+        }
+        function myFunction0(x){
+            x.style.background="greenyellow";
+
+        }
+        function displayDate(id){
+            var txt=document.getElementById(id).innerHTML;
+            document.getElementById("demo").innerHTML=txt+Date();
+        }
+        document.getElementById("bt").onclick=function(){displayDate('txt2')};
+        function checkCookies(){
+            if(navigator.cookieEnabled==true){
+                alert("Cookies 可用")
+            }
+            else{
+                alert("Cookies 不可用")
+            }
+        }
+    </script>
+</body>
+</html>
