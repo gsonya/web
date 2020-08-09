@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-eventListener</title>
+    <style type="text/css">
+        #d1{
+            width:100%;
+            height:200px;
+            padding:10px;
+            overflow:auto;
+            background-color:orange;
+            border:5px dashed blue;
+        }
+        #bt{
+            position:absolute;
+        }
+        button:hover{
+            background-color:#e68a00;
+        }
+        #bt0,#bt1{
+            float:right;
+        }
+        #d1 p{
+            margin-left:100px;
+            width:20%;
+            background-color:aliceblue;
+        }
+        #d2{
+            width:100%;
+            height:200px;
+            margin-top:50px;
+            padding:10px;
+            background-color:orange;
+            border:5px dashed blue;
+        }
+        #d2 div{
+            width:40%;
+            height:60px;
+            line-height:60px;
+            background-color:aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <button id="bt">点击</button><br>
+        <button id="bt0" onclick="removeHandler()">删除鼠标移出</button>
+        <button id="bt1" onclick="addHandler()">添加鼠标移出</button>
+        <p id="demo"></p>
+    </div>
+    <div id="d2">点击下列文字<br>
+        <div id="d01">
+            <p id="p1">冒泡useCpature=false</p>
+        </div>
+        <div id="d02">
+            <p id="p2">捕获useCpature=true</p>
+        </div>
+    </div>
+    <script>
+        var x=document.getElementById("bt");
+        x.addEventListener("mouseover", myFunction1);
+        x.addEventListener("click", myFunction2);
+        x.addEventListener("mouseout", myFunction3);
+        function myFunction1(){
+            document.getElementById("demo").innerHTML +="Moused over<br>"
+        }
+        function myFunction2(){
+            document.getElementById("demo").innerHTML += "Clicked<br>"
+        }
+        function myFunction3(){
+            document.getElementById("demo").innerHTML += "Moused out<br>"
+        }
+        window.addEventListener("resize", function(){
+            document.getElementById("demo").innerHTML="";
+        })
+        function removeHandler(){
+            document.getElementById("bt").removeEventListener("mouseout",myFunction3)
+        }
+        function addHandler(){
+            var y=document.getElementById("bt");
+            x.addEventListener("mouseout", myFunction3);
+        }
+        document.getElementById("p1").addEventListener("click", function(){alert("点击p元素");},false);
+        document.getElementById("d01").addEventListener("click", function(){alert("点击div元素");},false);
+        document.getElementById("p2").addEventListener("click", function(){alert("点击p元素");},true);
+        document.getElementById("d02").addEventListener("click", function(){alert("点击div元素");},true)
+    </script>
+
+</body>
+</html>
