@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-element</title>
+    <style type="text/css">
+        body{
+            background-color:#ff6699;
+        }
+        p{
+            border:1px solid black;
+            padding:5px;
+            background-color:#ffccdd;
+        }
+        button:hover{
+            background-color:#ff3377;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <p id="p1">这是第一个段落p1。</p>
+        <button onclick="myFunction1()" id="bt1">删除p1</button>
+        <button onclick="myFunction2()">增加p1</button>
+        <p id="p2">这是第二个段落p2。</p>
+       <button onclick="myFunction3('替换p2')">替换p2</button>
+       <button onclick="myFunction3('这是第二个段落p2。')">返回p2</button>
+    </div>
+    <script>
+        var para1=document.createElement("p");
+        var node1=document.createTextNode("这是插入结尾的新段落p3");
+        para1.appendChild(node1);
+        var element=document.getElementById("d1");
+        element.appendChild(para1);
+        var para2=document.createElement("p");
+        var node2=document.createTextNode("这是插入开始的新段落p4");
+        para2.appendChild(node2);
+        var child=document.getElementById("p1");
+        element.insertBefore(para2, child);
+        function myFunction1(){
+            var parent=document.getElementById("d1");
+            var child0=document.getElementById("p1");
+            parent.removeChild(child0);
+        }
+        function myFunction2(){
+            var para3=document.createElement("p");
+            para3.id="p1";
+            var node3=document.createTextNode("这是第一个段落p1。");
+            para3.appendChild(node3);
+            var child1=document.getElementById("bt1");
+            var element0=document.getElementById("d1");
+            element0.insertBefore(para3, child1);
+        }
+        function myFunction3(text){
+            var para4=document.createElement("p");
+            para4.id="p2";
+            var node4=document.createTextNode(text);
+            para4.appendChild(node4);
+            var parent0=document.getElementById("d1");
+            var child2=document.getElementById("p2");
+            parent0.replaceChild(para4, child2);
+        }
+    </script>
+</body>
+</html>
