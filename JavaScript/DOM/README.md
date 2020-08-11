@@ -51,3 +51,21 @@
 ##### （2）移除已存在元素：需要知道该元素的父元素，parent.removeChild ( child ) 
 
 ##### （3）替换元素：parent.replaceChild ( para , child ) 
+
+#### 七、Collection And NodeList
+
+##### （1）Collection：getElementsByTagName ( ) 方法返回HTML Collection对象，length属性定义了集合中元素的数量
+
+##### （2）NodeList：querySelectorAll ( ) 方法返回NodeList对象，length属性定义了集合中元素的数量
+
+##### （3）两者的区别
+
+##### a.HTMLCollection 是HTML元素的集合；NodeList是一个文档节点的集合
+
+##### b.NodeList与HTMLCollection都与数组对象有点类似，可以用索引来获取元素
+
+##### c.NodeList与Collection都有length属性
+
+##### d.NodeList只能通过索引来获取，HTMLCollection可以通过name，id或索引来获取
+
+##### 只有NodeList对象有包含属性节点和文本节点

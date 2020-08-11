@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-CoNo</title>
+    <style type="text/css">
+        body{
+            background-color:#FFF0F5;
+        }
+    </style>
+</head>
+<body>
+    <p>这是第一个段落</p>
+    <p>这是第二个段落</p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <script>
+        var myCollection = document.getElementsByTagName("p");
+        document.getElementById("demo1").innerHTML="myCollection:文档有"+myCollection.length+"个段落";
+        myCollection[2].style.color = "blue";
+        var myNodeList=document.querySelectorAll("p");
+        document.getElementById("demo2").innerHTML = "myNodeList:文档有"+myNodeList.length+"个段落";
+        myNodeList[3].style.color = "#FF1493";
+    </script>
+</body>
+</html>
