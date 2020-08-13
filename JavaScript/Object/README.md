@@ -15,3 +15,9 @@
 ###### var person = { name : " 张三 " , age : 15 }
 
 ###### var x = person; x.age = 10;  //x.age和person.age都会变
+
+#### 二、prototype
+
+##### （1）prototype属性可以给对象的构造函数添加新的属性
+
+##### （2）prototype属性也可以给对象的构造函数添加新的方法

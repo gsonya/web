@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-object</title>
+    <style type="text/css">
+        body{
+            background-color:#FFA07A;
+        }
+        button{
+            background-color:#b33300;
+            color:#FFD700;
+        }
+        button:hover{
+            color:#DAA520;
+            padding:5px;
+        }
+        .s{
+            background-color:#FFFAF0;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <h3>Object定义创建对象</h3>
+    <p id="txt" class="s"></p>
+    <p id="txt0" class="s"></p>
+    <button onclick="myLength()">字符串长度</button>
+    <button onclick="myUp()">小写变大写</button>
+    <p id="demo" class="s"></p>
+    <h3>对象构造器</h3>
+    <p id="demo0" class="s"></p>
+    <script>
+        var person = new Object();      //使用object定义并创建对象
+        person={firstname:"John",lastname:"Doe",age:16};
+        var text="";
+        for (x in person){
+            text+=person[x];
+        }
+        document.getElementById("txt").innerHTML="firstname："+person.firstname+"<br>lastname："+person.lastname+"<br>age："+person.age;
+        document.getElementById("txt0").innerHTML="字符串："+text;
+        function myLength(){
+            var x1=text.length;      //访问对象属性
+            document.getElementById("demo").innerHTML="字符串长度为："+x1;
+        }
+        function myUp(){
+            var x2=text.toUpperCase();       //访问对象方法
+            document.getElementById("demo").innerHTML="小写变大写："+x2;
+        }
+        function Person(firstname,lastname,age){
+            this.firstname=firstname;
+            this.lastname=lastname;
+            this.age=age;
+        }
+        var employee=new Person("John","Doe",20);       //使用函数构造对象，对象构造器
+        Person.prototype.nationality="China";       //添加属性
+        Person.prototype.name = function(){     //添加方法
+            return this.firstname+" "+this.lastname;
+        }
+        document.getElementById("demo0").innerHTML="姓名："+employee.name()+"<br>年龄："+employee.age+"<br>国籍："+employee.nationality;
+    </script>
+</body>
+</html>
