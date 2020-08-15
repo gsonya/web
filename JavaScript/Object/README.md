@@ -75,3 +75,19 @@
 #### 八、math
 
 ##### 常见方法：Math.round ( 数字 ) （四舍五入）；Math.random ( ) （0至1之间的随机数） 
+
+#### 九、RegExp
+
+##### （1）语法：var patt=new RegExp ( pattern , modifiers ) ;（或：var patt=/pattern/modifiers;）
+
+##### （2）常见修饰符
+
+###### a ) i:不区分大小写
+
+###### b ) g:全局搜索
+
+##### （3）常见方法
+
+###### a ) test ( ) :搜索字符串指定的值，根据结果并返回真或假
+
+###### b ) exec ( ) :检索字符串中的指定值，返回值是被找到的值，如果没有发现匹配，则返回null
