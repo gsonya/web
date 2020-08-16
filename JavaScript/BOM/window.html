@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-window</title>
+    <meta charset="utf-8">
+</head>
+<body>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <input type="button" value="加载新文档" onclick="newDoc()">
+    <script>
+        var w=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+        var h=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+        x1=document.getElementById("demo1");
+        x1.innerHTML="浏览器window宽度："+w+"，高度："+h+"。";
+        var aw=screen.availWidth;
+        var ah=screen.availHeight;
+        x2=document.getElementById("demo2");
+        x2.innerHTML="浏览器window可用宽度："+aw+"，可用高度："+ah+"。";
+        var addr=location.href;
+        x3=document.getElementById("demo3");
+        x3.innerHTML="当前页面URL："+addr;
+        var url=location.pathname;
+        x4=document.getElementById("demo4");
+        x4.innerHTML="URL路径名："+url;
+        function newDoc(){
+            window.location.assign("https://blog.csdn.net/gsonya")
+        }
+    </script>
+</body>
+</html>
