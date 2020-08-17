@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-history0</title>
+    <style type="text/css" media="screen">
+         div .img{
+            margin:5px;
+            border:1px dashed black;
+            float:left;
+            width:180px;
+        }
+        div .img:hover{
+            width:200px;
+            border:1px solid black;
+        }
+        div .img img{
+            width:100%;
+            height:auto;
+        }
+        div .desc{
+            padding:15px;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div style="width:730px;float:left;">
+        <div class="responsive">
+            <div class="img">
+                <a target="_self" href="img/changcheng.jpg">
+                    <img src="img/changcheng.jpg" alt="changcheng.jpg" width="300" height="200">
+                </a>
+                <div id="desc">长城</div>
+            </div>
+        </div>
+        <div class="responsive">
+            <div class="img">
+                <a target="_self" href="img/xini.jpg">
+                    <img src="img/xini.jpg" alt="xini.jpg" width="300" height="200">
+                </a>
+                <div id="desc">悉尼</div>
+            </div>
+        </div>
+    </div>
+    <div style="float:left">
+        <form>
+            姓名：<input type="text"/>
+        </form>
+        <p>请输入您对本网页的建议</p>
+        <textarea name="advice" id="text" style="height:100px;width:500px"></textarea>
+        <button type="submit" onclick="myClick()">提交</button>
+        <p id="demo"></p>
+    </div>
+    <script>
+        function myClick(){
+            var txt=document.getElementById("text").value;
+            document.getElementById("demo").innerHTML="您的建议为："+txt+"<br>我们会第一时间处理您所提交的建议"
+        }
+    </script>
+</body>
+</html>

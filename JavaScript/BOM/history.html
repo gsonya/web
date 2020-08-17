@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-history</title>
+    <style>
+        input{
+            margin:10px;
+        }
+        input:hover{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Back" onclick="goBack()">
+    <input type="button" value="Foward" onclick="goForward()">
+    <input type="button" value="refresh" onclick="refresh()"><br>
+    <input type="button" value="(Back)" onclick="goBack0()">
+    <input type="button" value="(Foward)" onclick="goForward0()">
+    <input type="button" value="(refresh)" onclick="refresh0()">
+    <script>
+        function goBack(){
+            window.history.back();
+        }
+        function goForward(){
+            window.history.forward();
+        }
+        function refresh(){
+            window.parent.frames.item("history0").location.reload();
+        }
+        function goBack0(){
+            history.go(-1);
+        }
+        function goForward0(){
+            history.go(1);
+        }
+        function refresh0(){
+            history.go(0);
+        }
+    </script>
+</body>
+</html>
