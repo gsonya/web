@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-dialog</title>
+    <style type="text/css">
+        body{
+            background-color:#BDB76B;
+        }
+        button{
+            margin:10px;
+        }
+        button:hover{
+            background-color:#6a662f;
+        }
+        div{
+            border:2px dashed green;
+            height:200px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <button onclick="function1()" id="bt">警告框（3秒）</button>
+        <button onclick="stopFun1()">停止警告</button>
+    </div>
+    <div>
+        <button onclick="function2()">确认框</button>
+        <p id="demo"></p>
+    </div>
+    <div>
+        <button onclick="function3()">对话框</button>
+        <p id="demo0"></p>
+    </div>
+    <script>
+        function function1(){
+            var d=document.getElementById("bt");
+            setTimeout(function(){d.innerHTML="警告框（2秒）"},1000);
+            setTimeout(function(){d.innerHTML="警告框（1秒）"},2000);
+            setTimeout(function(){d.innerHTML="警告框（0秒）"},3000);
+            myVar=setInterval(function(){alert("警告：电量过低！")},3000);
+        }
+        function stopFun1(){
+            clearTimeout(myVar);
+        }
+        function function2(){
+            var x;
+            var y=confirm("确认框\n进行确认！");
+            if(y == true){
+                x = "你按下了“确定”按钮！";
+            }
+            else{
+                x = "你按下了“取消”按钮！";
+            }
+            document.getElementById("demo").innerHTML = x;
+        }
+        function function3(){
+            var x;
+            var person=prompt("请输入你的名字","Tom");
+            if(person!=null && person!=""){
+                x="你好" + person +"!欢迎来到此页面。";
+                document.getElementById("demo0").innerHTML = x;
+            }
+        }
+    </script>
+</body>
+</html>
