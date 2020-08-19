@@ -41,3 +41,14 @@
 ##### （2）setTimeout ( ) :在指定的毫秒数后执行指定代码
 
 ##### （3）停止执行：window.clearInterval ( intervalVariable ) 
+
+#### 六、Cookie（运行cookie.html）
+
+##### （1）创建cookie：document.cookie = " username = Tom ; expires = Thu, 18 Dec 2043 12:00:00 GMT; path=/ " （三个参数分别为：键值对、过期时间、路径;修改cookie和创建cookie一样，创建的新的cookie会代替原来的cookie）
+
+##### （2）读取cookie：x = document.cookie;
+
+##### （3）删除cookie：设置过期时间为以前的时间即可删除
+
+##### （4）问题：在菜鸟教程中该代码可以正常运行，自己软件运行时cookie值无法保留
+
