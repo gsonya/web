@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>javascript-prototype</title>
+    <script src="http://cdn.staticfile.org/prototype/1.7.3/prototype.min.js"></script>
+    <script>
+        function myFunction(){
+            $(demo).writeAttribute("style","color:blue").insert("Test Prototype")
+        }
+        Event.observe(window,"load",myFunction);
+    </script>
+</head>
+<body>
+    <h1 id="demo"></h1>
+</body>
+</html>
