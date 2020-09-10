@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>html5-canvas</title>
+</head>
+<body>
+    <canvas id="myCanvas-demo" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="Canvas0-demo" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="Canvas1-demo" width="200" height="100" style="border:1px solid #d3d3d3"></canvas><br>
+    <canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="Canvas0" width="200" height="100" style="border:1px solid #d3d3d3;"></canvas>
+    <canvas id="Canvas1" width="200" height="100" style="border:1px solid #d3d3d3"></canvas>
+    <script>
+
+        //demo 仅有线条
+        var c_demo=document.getElementById("myCanvas-demo");
+        var ctx_demo=c_demo.getContext("2d");
+        myFuntion(ctx_demo);
+
+
+        var c0_demo=document.getElementById("Canvas0-demo");
+        var ctx0_demo=c0_demo.getContext("2d");
+        myFuntion(ctx0_demo);
+        ctx0_demo.beginPath();
+        ctx0_demo.arc(100,50,40,0,2*Math.PI);
+        ctx0_demo.stroke();
+        ctx0_demo.scale(0.5,0.5);   //放大原图形0.5倍
+        ctx0_demo.arc(100,50,40,0,2*Math.PI);
+        ctx0_demo.stroke();
+
+        var c1_demo=document.getElementById("Canvas1-demo");
+        var ctx1_demo=c1_demo.getContext("2d");
+        myFuntion(ctx1_demo);
+        ctx1_demo.font="30px Arial";
+        ctx1_demo.strokeText("Hello",0,50);
+        ctx1_demo.fillText("你好",0,80);
+        ctx1_demo.strokeText("World",100,50);
+        ctx1_demo.fillText("世界",100,80);
+
+        //style 有颜色等设计
+        var c=document.getElementById("myCanvas");
+        var ctx=c.getContext("2d");
+        myFuntion(ctx);
+        grdFunctionL(ctx,0,0,100,50,"black","red","white",0,0,100,50);
+        grdFunctionL(ctx,100,50,200,100,"white","red","black",100,50,200,100);
+        grdFunctionL(ctx,0,100,100,50,"black","blue","white",0,50,100,50);
+        grdFunctionL(ctx,100,50,200,0,"white","blue","black",100,0,100,50)
+
+
+        var c0=document.getElementById("Canvas0");
+        var ctx0=c0.getContext("2d");
+        myFuntion(ctx0);
+        ctx0.beginPath();
+        ctx0.arc(100,50,40,0,2*Math.PI);
+        ctx0.stroke();
+        grdFunctionR(ctx0,100,50,2,100,50,40,"black","blue","white",0,0,200,100);
+
+        var c1=document.getElementById("Canvas1");
+        var ctx1=c1.getContext("2d");
+        myFuntion(ctx1);
+        ctx1.font="30px Arial";
+        // ctx1.strokeText("Hello",0,50);
+        ctx1.fillText("你好",0,80);
+        // ctx1.strokeText("World",100,50);
+        ctx1.fillText("世界",100,80);
+        grdFunctionS(ctx1,0,50,80,40,"magenta","blue","red","Hello",0,50);
+        grdFunctionS(ctx1,100,50,140,90,"magenta","blue","red","World",100,50);
+
+        function myFuntion(ctx){
+            ctx.moveTo(100,0);
+            ctx.lineTo(100,100);
+            ctx.moveTo(0,50);
+            ctx.lineTo(200,50);
+            ctx.fillStyle="#990099";
+            ctx.strokeStyle="yellow";
+            ctx.stroke();
+        }
+
+        function grdFunctionL(ctx,sx,sy,ex,ey,color1,color2,color3,sx0,sy0,width,height){
+            var grd=ctx.createLinearGradient(sx,sy,ex,ey);
+            grd.addColorStop(0, color1);
+            grd.addColorStop(0.5,color2);
+            grd.addColorStop(1,color3);
+            ctx.fillStyle=grd;
+            ctx.fillRect(sx0,sy0,width,height);
+        }
+
+        function grdFunctionR(ctx,sx,sy,sr,ex,ey,er,color1,color2,color3,sx0,sy0,width,height){
+            var grd=ctx.createRadialGradient(sx,sy,sr,ex,ey,er);
+            grd.addColorStop(0,color1);
+            grd.addColorStop(0.5,color2);
+            grd.addColorStop(1,color3);
+            ctx.fillStyle=grd;
+            ctx.fillRect(sx0,sy0,width,height);
+        }
+
+        function grdFunctionS(ctx,sx,sy,ex,ey,color1,color2,color3,message,sx0,sy0){
+            var gradient=ctx.createLinearGradient(sx,sy,ex,ey);
+            gradient.addColorStop(0,color1);
+            gradient.addColorStop(0.5,color2);
+            gradient.addColorStop(1,color3);
+            ctx.strokeStyle=gradient;
+            ctx.strokeText(message,sx0,sy0);
+        }
+
+    </script>
+</body>
+</html>
