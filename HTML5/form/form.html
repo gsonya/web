@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>html5-form</title>
+    <style type="text/css">
+        body{
+            background-color:#ccff33;
+        }
+        h3{
+            text-align:center;
+        }
+        form{
+            margin-left:30%;
+        }
+        input{
+            margin-top:15px;
+            margin-bottom:15px;
+        }
+    </style>
+</head>
+<body>
+    <h3>订单</h3>
+    <form>
+        选择背景色：<input type="color" name="color" value="#ccff33" id="onChange"><br>
+        物品类型：
+        <input list="typeList" id="type"><br>
+        <datalist id="typeList">
+            <option value="美妆"/>
+            <option value="箱包"/>
+            <option value="医药"/>
+            <option value="鞋靴"/>
+            <option value="保健"/>
+            <option value="运动"/>
+        </datalist>
+        数量（限购5个）：<input type="number" id="number" min="1" max="5"><br>
+        送达时间：<input type="date" id="date" ><br>
+        <button type="submit" onclick="return myFunction()">提交</button><br>
+    </form>
+    <hr>
+    <h4>订单状态</h4>
+    <p id="demo">未完成</p>
+    <h4>评价</h4>
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">订单内容评价：0<input type="range" id="a" value="50">100<br>订单界面评价：0<input type="range" id="b" value="50">100<br>总分：<output name="x" for="a b"></output>
+    </form>
+    <script>
+        document.getElementById("onChange").onchange=function(){
+            document.getElementById("onChange").click();
+            document.body.style.background=this.value;
+        }
+        function myFunction(){
+            document.getElementById("demo").innerHTML="订单已完成！";
+            return false;//提交表单不再自动刷新
+        }
+    </script>
+</body>
+</html>
