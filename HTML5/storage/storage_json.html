@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>html5-storage_json</title>
+    <style type="text/css">
+         body{
+            background-color:#DEB887;
+        }
+        .box{
+            border:2px dashed grey;
+            width:320px;
+            height: 230px;
+            text-align:center;
+            float:left;
+            margin:10px;
+            background-color: #FFF8DC;
+        }
+        #d2{
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div class="box">
+            <p>增</p>
+            <label for="sitename">网站名：</label>
+            <input type="text" id="sitename" name="sitename" class="text"/><br>
+            <label for="siteurl">网址：</label>
+            <input type="text" id="siteurl" name="siteurl"/><br><br>
+            <input type="button" onclick="save()" value="新增记录"/>
+        </div>
+
+        <div class="box">
+            <p>查</p>
+            <label for="search">输入网站名</label>
+            <input type="text" id="search_site" name="search_site"/><br><br>
+            <input type="button" onclick="find()" value="查找网站"/>
+            <p id="find_result"><br></p>
+        </div>
+    </div>
+    <div id="d2">
+        <p style="color:red">全部数据</p>
+        <div id="list"></div>
+    </div>
+    <script type="text/javascript">
+        loadAll();
+        function save(){
+            var site=new Object;
+            site.sitename=document.getElementById("sitename").value;
+            site.siteurl=document.getElementById("siteurl").value;
+            var str=JSON.stringify(site);
+            localStorage.setItem(site.sitename,str);
+            alert("保存成功！");
+            loadAll();
+            document.getElementById("sitename").value="";
+            document.getElementById("siteurl").value="";
+        }
+
+        function find(){
+            var search_site=document.getElementById("search_site").value;
+            var str=localStorage.getItem(search_site);
+            var find_result=document.getElementById("find_result");
+            var site=JSON.parse(str);
+            find_result.innerHTML="网站名："+site.sitename+"<br>网址："+site.siteurl;
+        }
+
+        function loadAll(){
+            var list=document.getElementById("list");
+            if(localStorage.length>0){
+                var result="<table border='1'>";
+                result+="<tr style='color:red'><td>网站名</td><td>网址</td></tr>";
+                for (var i=0;i<localStorage.length;i++){
+                    var sitename=localStorage.key(i);
+                    var str=localStorage.getItem(sitename);
+                    var site=JSON.parse(str);
+                    result+="<tr><td>"+site.sitename+"</td><td>"+site.siteurl+"</td></tr>"
+                }
+                result+="</table>";
+                list.innerHTML=result;
+            }
+            else{
+                list.innerHTML="数据为空……";
+            }
+        }
+    </script>
+</body>
+</html>

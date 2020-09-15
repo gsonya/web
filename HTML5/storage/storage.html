@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>html5-storage</title>
+    <style type="text/css">
+        body{
+            background-color:#DEB887;
+        }
+        .box{
+            border:2px dashed grey;
+            width:320px;
+            height: 230px;
+            text-align:center;
+            float:left;
+            margin:10px;
+            background-color: #FFF8DC;
+        }
+        #d2{
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div id="d1">
+        <div class="box">
+            <p>增</p>
+            <label for="sitename">网站名（key）：</label>
+            <input type="text" id="sitename" name="sitename" class="text"/><br>
+            <label for="siteurl">网址（value）：</label>
+            <input type="text" id="siteurl" name="siteurl"/><br><br>
+            <input type="button" onclick="save()" value="新增记录"/>
+        </div>
+
+        <div class="box">
+            <p>删</p>
+            <label for="del">输入网站名：</label>
+            <input type="text" id="del_site" name="del_site"/><br><br>
+            <input type="button" onclick="del()" value="删除单个数据"/><br><hr>
+            <p>该操作会删除所有记录，请谨慎操作!!!</p>
+            <input type="button" onclick="delAll()" value="删除所有数据"/>
+        </div>
+
+        <div class="box">
+            <p>查</p>
+            <label for="search">输入网站名(或索引)：</label>
+            <input type="text" id="search_site" name="search_site"/><br><br>
+            <input type="button" onclick="find()" value="网站名查找"/>
+            <input type="button" onclick="findI()" value="索引查找"/>
+            <p id="find_result"><br></p>
+        </div>
+    </div>
+    <div id="d2">
+        <p style="color:red;">全部数据：</p>
+        <div id="list"></div>
+    </div>
+    <script type="text/javascript">
+        loadAll();
+        function save(){
+            var siteurl=document.getElementById("siteurl").value;
+            var sitename=document.getElementById("sitename").value;
+            localStorage.setItem(sitename,siteurl);
+            alert("添加网站\nkey:"+sitename+"\nvalue："+siteurl);
+            loadAll();
+            document.getElementById("siteurl").value="";
+            document.getElementById("sitename").value="";
+        }
+
+        function del(){
+            var del_site=document.getElementById("del_site").value;
+            var site_url=localStorage.getItem(del_site);
+            localStorage.removeItem(del_site);
+            alert("删除网站\nkey:"+del_site+"\nvalue:"+site_url);
+            loadAll();
+            document.getElementById("del_site").value="";
+        }
+
+        function delAll(){
+            localStorage.clear();
+            alert("已删除全部数据！");
+            loadAll();
+        }
+
+        function find(){
+            var search_site=document.getElementById("search_site").value;
+            var siteurl=localStorage.getItem(search_site);
+            var find_result=document.getElementById("find_result");
+            find_result.innerHTML=search_site+"的网址是："+siteurl;
+        }
+
+        function findI(){
+            var search_index=document.getElementById("search_site").value;
+            var site_name=localStorage.key(search_index);
+            var site_url=localStorage.getItem(site_name);
+            var find_result=document.getElementById("find_result");
+            find_result.innerHTML="网站名："+site_name+"<br>网址："+site_url;
+        }
+
+        function loadAll(){
+            var list=document.getElementById("list");
+            if(localStorage.length>0){
+                var result="<table border='1'>";
+                result+="<tr style='color:red'><td>index</td><td>key</td><td>value</td></tr>";
+                for(var i=0;i<localStorage.length;i++){
+                    var sitename=localStorage.key(i);
+                    var siteurl=localStorage.getItem(sitename);
+                    result+="<tr><td>"+i+"</td><td>"+sitename+"</td><td>"+siteurl+"</td></tr>";
+                }
+                result+="</table>";
+                list.innerHTML=result;
+            }else{
+                list.innerHTML="数据为空……";
+            }
+        }
+    </script>
+</body>
+</html>
