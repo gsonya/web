@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>html5-dataBase</title>
+    <script type="text/javascript">
+        var db=openDatabase('mydb','1.0','Test DB',2*1024*1024);
+        var msg;
+        db.transaction(function (tx){
+            if(!db){
+                alert("浏览器不支持");
+                return;
+            }
+
+            tx.executeSql('CREATE TABLE IF NOT EXISTS COLORS (id unique,color)');
+            tx.executeSql('INSERT INTO COLORS (id, color) VALUES (1,"红色")');
+            tx.executeSql('INSERT INTO COLORS (id, color) VALUES (2,"蓝色")');
+            tx.executeSql('INSERT INTO COLORS (id, color) VALUES (3,"绿色")');
+        });
+
+        function showAll(){
+            db.transaction(function (tx){
+                tx.executeSql('SELECT * FROM COLORS',[],function (tx,results){
+                    var len=results.rows.length,i;
+                    msg="<p>查询记录条数："+len+"</p>";
+                    result="<table border='1' ><tr><td style='padding:10px'>id</td><td style='padding:10px'>color</td></tr>";
+                    for(i=0;i<len;i++){
+                        result+="<tr><td style='padding:10px'>"+results.rows.item(i).id+"</td><td style='padding:10px'>"+results.rows.item(i).color+"</td></tr>";
+                    }
+                    result+="</table>"
+                    document.querySelector('#status').innerHTML=result;
+                },null);
+            });
+        }
+
+        function del(){
+            db.transaction(function (tx){
+                tx.executeSql('DELETE FROM COLORS WHERE id=3');
+                alert("删除成功")
+            })
+        }
+
+        function update(){
+            db.transaction(function (tx){
+                tx.executeSql('UPDATE COLORS SET color="黄色" WHERE id=2');
+                alert("修改成功");
+            })
+            showAll();
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="showAll()" type="submit">表格</button><br><br>
+    <div id="status" name="status"></div><br><br>
+    <button type="submit" onclick="del()">删除</button>
+    <button type="submit" onclick="update()">将蓝色改为黄色</button>
+</body>
+</html>
