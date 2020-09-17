@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>css3-border</title>
+    <style type="text/css">
+        div{
+            border:20px solid red;
+            width:250px;
+            padding:10px 20px;
+            border-radius:30px;
+        }
+        #round{
+            border-image:url(image/1.jpg) 30 30 round;
+            border-radius:30px;
+        }
+        #stretch{
+            border-image:url(image/1.jpg) 30 30 stretch;
+            border-radius:30px;
+        }
+    </style>
+</head>
+<body>
+    <div id="round" class="radius">图像平铺（重复）填充</div>
+    <br>
+    <div id="stretch" class="radius">图像拉伸填充</div>
+</body>
+</html>
