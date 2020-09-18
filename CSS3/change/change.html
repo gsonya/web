@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css3-change</title>
+		<style type="text/css">
+			div{
+				width: 500px;
+				height: 200px;
+				margin: 20px;
+				text-align: center;
+				line-height: 200px;
+			}
+			#grad1{
+				background-image: linear-gradient(to bottom right,red,blue,green);
+			}
+			#grad2{
+				background-image: linear-gradient(to right,rgba(255,0,0,1),rgba(255,0,0,0));
+			}
+			#grad3{
+				background-image: repeating-linear-gradient(red,blue 10%,green 20%);
+			}
+			#grad4{
+				background-image:radial-gradient(red,blue,green);
+			}
+			#grad5{
+				background-image: radial-gradient(red 5%,blue 15%,green 60%);
+			}
+			#grad6{
+				background-image: radial-gradient(circle,red,blue,green);
+			}
+			#grad7{
+				background-image: radial-gradient(closest-side at 60% 55%,red,blue,green);
+			}
+			#grad8{
+				background-image: radial-gradient(farthest-side at 60% 55%,red,blue,green);
+			}
+			#grad9{
+				background-image:repeating-radial-gradient(red,blue 10%,green 15%);
+			}
+		</style>
+	</head>
+	<body>
+		<h3>线性渐变</h3>
+		<div id="grad1">一般线性渐变</div>
+		<div id="grad2">透明线性渐变</div>
+		<div id="grad3">重复线性渐变</div>
+		<h3>径向渐变</h3>
+		<div id="grad4">一般径向渐变</div>
+		<div id="grad5">节点不均匀径向渐变</div>
+		<div id="grad6">圆形径向渐变</div>
+		<div id="grad7">不同大小径向渐变</div>
+		<div id="grad8">不同大小径向渐变</div>
+		<div id="grad9">重复径向渐变</div>
+	</body>
+</html>
