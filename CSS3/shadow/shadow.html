@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css3-shadow</title>
+		<style type="text/css">
+			body{
+				background-color: #fffff2
+			}
+			h2{
+				text-shadow: 5px 2px 5px darkgreen;
+			}
+			.card{
+				width: 250px;
+				height: 320px;
+				text-align: center;
+				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+				margin:15px;
+				float: left;
+			}
+			.img{
+				width: 100%;
+				height: 200px;
+				background-size: 248px 199px;
+				background-position: center;
+				background-repeat: no-repeat;
+			}
+			.img:hover{
+				background-size: 270px 220px;
+			}
+			h3{
+				font-weight: 400;
+			}
+			a{
+				text-decoration: none;
+				color: orange;
+			}
+			a:hover{
+				color: #ffd280;
+				font-size: 22px;
+			}
+			p{
+				color: grey;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+				margin: 5px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>美食专栏-苦瓜</h2>
+		<div id="card1" class="card">
+			<div class="img" style="background-image: url(img/card1.jpg);"></div>
+			<h3><a href="#">老干妈苦瓜</a></h3>
+			<p><b>食材：</b>苦瓜、五花肉、老干妈豆豉酱、洋葱、红辣椒、大蒜、油盐</p>
+		</div>
+		<div id="card2" class="card">
+			<div class="img" style="background-image: url(img/card2.jpg);"></div>
+			<h3><a href="#">苦瓜苹果饮</a></h3>
+			<p><b>食材：</b>苦瓜、苹果、冰镇矿泉水、蜂蜜、盐</p>
+		</div>
+		<div id="card3" class="card">
+			<div class="img" style="background-image: url(img/card3.jpg);"></div>
+			<h3><a href="#">肉末苦瓜</a></h3>
+			<p><b>食材：</b>苦瓜、猪肉、大蒜头、小米椒、油、盐、鸡精、耗油、生抽、淀粉</p>
+		</div>
+		<div id="card4" class="card">
+			<div class="img" style="background-image: url(img/card4.jpg);"></div>
+			<h3><a href="#">豉椒苦瓜丝</a></h3>
+			<p><b>食材：</b>苦瓜、青椒、豆豉、蒜、盐、鸡精、香油、白糖、辣椒油</p>
+		</div>
+	</body>
+</html>
