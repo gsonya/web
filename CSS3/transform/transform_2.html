@@ -4,15 +4,113 @@
 		<meta charset="UTF-8">
 		<title>css3-transform_2</title>
 		<style>
-			img{
+			.img{
+				width: 200px;
+				height: 200px;
 				transition: all 0.6s;
+				border: 1px solid red;
 			}
-			img:hover{
+			#img1:hover{
 				transform: rotate(180deg);
+			}
+			#img2:hover{
+				transform: translate(400px,400px);
+			}
+			#img3:hover{
+				transform: scale(2,2);
+			}
+			#img4:hover{
+				transform: skew(30deg,20deg);
+			}
+			#img5:hover{
+				transform: matrix(0.866,0.5,-0.5,0.866,0,0);
+			}
+			.dd{
+				width: 200px;
+				height: 130px;
+				border: 1px solid red;
+				margin: 150px auto;
+				position: relative;
+			}
+			.dd img{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top:0;
+				left: 0;
+				transition: all 0.6s;
+				transform-origin: top right;
+				border: 1px solid red;
+			}
+			#d1:hover img:first-child{
+				transform: rotate(60deg);
+			}
+			#d1:hover img:nth-child(2){
+				transform: rotate(120deg);
+			}
+			#d1:hover img:nth-child(3){
+				transform: rotate(180deg);
+			}
+			#d1:hover img:nth-child(4){
+				transform: rotate(240deg);
+			}
+			#d1:hover img:nth-child(5){
+				transform: rotate(300deg);
+			}
+			#d1:hover img:nth-child(6){
+				transform: rotate(360deg);
+			}
+			#d2:hover img:first-child{
+				transform: translate(-220px,-150px);
+			}
+			#d2:hover img:nth-child(2){
+				transform: translate(0px,-150px);
+			}
+			#d2:hover img:nth-child(3){
+				transform: translate(220px,-150px);
+			}
+			#d2:hover img:nth-child(4){
+				transform: translate(-220px,150px);
+			}
+			#d2:hover img:nth-child(5){
+				transform: translate(220px,0px);
+			}
+			#d2:hover img:nth-child(6){
+				transform: translate(-220px,0px);
+			}
+			#d2:hover img:nth-child(7){
+				transform: translate(0px,150px);
+			}
+			#d2:hover img:nth-child(8){
+				transform: translate(220px,150px);
 			}
 		</style>
 	</head>
 	<body>
-		<img src="img/card1.jpg" />
+		<img id="img1" class="img" src="img/card1.jpg"/>
+		<img id="img2" class="img" src="img/card2.jpg"/>
+		<img id="img3" class="img" src="img/card3.jpg"/>
+		<img id="img4" class="img" src="img/bg-left.png"/>
+		<img id="img5" class="img" src="img/bg-right.png"/>
+		
+		<div id="d1" class="dd">
+			<img src="img/card1.jpg" alt="loading" />
+			<img src="img/card2.jpg" alt="loading" />
+			<img src="img/card3.jpg" alt="loading" />
+			<img src="img/card4.jpg" alt="loading" />
+			<img src="img/bg-left.png" alt="loading" />
+			<img src="img/bg-right.png" alt="loading" />
+		</div>
+		
+		<div id="d2" class="dd">
+			<img src="img/card1.jpg" alt="loading" />
+			<img src="img/card2.jpg" alt="loading" />
+			<img src="img/card3.jpg" alt="loading" />
+			<img src="img/card4.jpg" alt="loading" />
+			<img src="img/bg.jpg" alt="loding" />
+			<img src="img/bg.jpg" alt="loading" />
+			<img src="img/bg-left.png" alt="loading" />
+			<img src="img/bg-right.png" alt="loading" />
+		</div>
 	</body>
 </html>
