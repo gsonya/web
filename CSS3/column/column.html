@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS3-column</title>
+		<style type="text/css">
+			body{
+				background-color: pink;
+			}
+			#d1{
+				width: 500px;
+				column-count: 3;
+				column-gap: 25px;
+				column-rule: 10px outset mediumpurple;
+			}
+			#title{
+				column-span: all;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">
+			<h3 id="title">村上春树语录</h3>
+			<p id="content">如果我爱你，而你也正巧爱我。你头发乱了时候，我会笑笑地替你拨一拨，然后，手还留恋地在你发上多待几秒。但是，如果我爱你，而你不巧地不爱我，你头发乱了，我只会轻轻地告诉你，你头发乱了喔。这大概是最纯粹的爱情观，如若相爱，便携手到老；如若错过，便护他安好。</p>
+		</div>
+	</body>
+</html>
