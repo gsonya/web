@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS3-button</title>
+		<style type="text/css">
+			.button{
+				display: inline-block;
+				border-radius: 15px;				
+				background-color: #f4511e;
+				border: none;				
+				color: #FFFFFF;
+				text-align: center;
+				font-size: 28px;
+				padding: 20px;
+				width: 200px;
+				transition: all 0.5s;
+				cursor: pointer;
+				margin: 5px;				
+				position: relative;				
+				overflow: hidden;
+				outline: none;
+			}
+			#but1 span{
+				cursor: pointer;
+				display: inline-block;
+				position: relative;
+				transition: 0.5s;
+			}
+			#but1 span:after{
+				content: '>>';
+				position: absolute;
+				opacity: 0;
+				top: 0;
+				right: 0;
+				transition: 0.5s;
+			}
+			#but1:hover span{
+				padding-right: 35px;
+			}
+			#but1:hover span:after{
+				opacity: 1;
+				right: 0;
+			}
+			#but2:after{
+				content: "";
+				background-color: orange;
+				display: block;
+				position: absolute;
+				padding-top: 300%;
+				padding-left: 350%;
+				margin-left: -20px!important; /* !important使权重变大 */
+				margin-top: -120%;
+				opacity: 0;
+				transition: all 0.8s;
+			}
+			#but2:active:after{
+				padding: 0;
+				margin: 0;
+				opacity: 1;
+				transition: 0s;
+			}
+			#but3{
+				box-shadow: 0 9px #999;
+			}
+			#but3:hover{
+				background-color:  #db3c0b;
+			}
+			#but3:active{
+				background-color: #db3c0b;
+				box-shadow: 0 5px #666;
+				transform: translateY(4px);
+			}</style>
+	</head>
+	<body>
+		<button class="button" id="but1"><span>Hover</span></button>
+		<button class="button" id="but2">Click</button>
+		<button class="button" id="but3">Press</button>
+	</body>
+</html>
