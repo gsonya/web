@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS3-flexBox</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				direction: rtl; /* 所有元素从右向左排列 */
+			}
+			.flex-container{
+				display: flex;
+				width: 400px;
+				height: 400px;
+				margin: 20px;
+				flex-direction: row-reverse; /* 在横向方向上反向排列 （因为body布局是从右向左，所以该属性值使item元素排列为从左向右）*/
+				background-color: lightgrey;
+				justify-content: space-around; /*横向居中*/
+				align-items: center; /* 纵向居中*/
+				flex-wrap: wrap-reverse; /* 当item宽度超过container宽度，反向换行（本来换行：上面元素{item1，item2}，下面元素{item3}，反向后：上{item3}，下{item1，item2}） */
+			}
+			.flex-item{
+				background-color: cornflowerblue;
+				width: 150px;
+				height: 100px;
+				border: 1px solid black;
+				/*margin: auto;*/  /* 横向居中，纵向居中（container中已设置横纵向居中，故此行代码无效果） */
+			}
+			.first{
+				order: -1; /* 下面元素顺序原来为{item1，item2}，将item2元素顺序提前后变为{item2，item1} */
+			}
+			/* 每块内容自己单独设置  */
+			#item1{
+				flex: 2; /* 占2/4 */
+				align-self: center; /* 居中 */
+			}
+			#item2{
+				flex: 1; /* 占1/4 */
+				align-self: flex-start; /* 靠近开始边  */
+			}
+			#item3{
+				flex: 1; /* 占1/4 */
+				align-self: flex-end; /* 靠近结束边 */
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex-container">
+			<div class="flex-item">flex item 1</div>
+			<div class="flex-item first">flex item 2</div>
+			<div class="flex-item">flex item 3</div>
+		</div>
+		<div class="flex-container">
+			<div class="flex-item" id="item1">flex item 1</div>
+			<div class="flex-item first" id="item2">flex item 2</div>
+			<div class="flex-item" id="item3">flex item 3</div>
+		</div>
+	</body>
+</html>

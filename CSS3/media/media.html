@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CSS3-media</title>
+		<style type="text/css">
+			#nav{
+				list-style-type: none;
+				width: 30%;
+				float: left;
+			}
+			#nav li a{
+				color: green;
+				text-decoration: none;
+				padding: 3px;
+				display: block;
+			}
+			/*520px-600px和>1151px:有背景图*/
+			@media screen and (max-width:699px) and (min-width: 520px),(min-width:1151px) {
+				#nav li a{
+					padding-left: 30px;
+					background: url(img/email.jpg) left center no-repeat;
+					background-size: 20px 20px;
+				}
+			}
+			/*700px-1000px:有before信息*/
+			@media screen and (max-width:1000px) and (min-width:700px ) {
+				#nav li a:before{
+					content: "Email:  ";
+					font-style: italic;
+					color: #666666;
+				}
+			}
+			/*>1001px:有after信息*/
+			@media screen and (min-width:1001px ) {
+				#nav li a:after{
+					content:"("attr(data-email)")";
+					font-size: 12px;
+					font-style: italic;
+					color: #666666;
+				}
+			}
+			/*总结:<520px:仅有链接字;520px-699px:仅有背景图;700px-1000px:仅有before信息;>1001px:仅有after信息;>1151px:既有背景图,又有before信息*/
+		</style>
+	</head>
+	<body>
+		<h2 style="text-align: center;">邮件</h2>
+		<ul id="nav">
+			<li><a data-email="johndoe@example.com" href="mailto:johndoe@example.com">John Doe</a></li>
+			<li><a data-email="marymoe@example.com" href="mailto:marymoe@example.com">Mary Moe</a></li>
+			<li><a data-email="amandapanda@example.com" href="mailto:amandapanda@example.com">Amanda Panda</a></li>
+		</ul>
+		<div id="main">
+			<p>邮局传递的函件和包裹的统称。邮件分国内邮件和国际邮件两大类。国内邮件按内容性质可分为函件和包件。在中国，函件包括信函、明信片、印刷品和盲人读物4种，包件包括包裹和快递小包。国际邮件分为国际函件和国际包裹。前者包括信函、明信片、印刷品、盲人读物和小包5种；后者分为普通包裹、脆弱包裹、保价包裹和过大包裹4种。邮件按处理手续、运递方式或寄递时限等又可分为挂号邮件、快递邮件、航空邮件、保价邮件、代收货价邮件等。邮局在收寄时开给收据，处理时加以登记，投递时要收件人签收的邮件，统称为给据邮件。</p>
+		</div>
+	</body>
+</html>
