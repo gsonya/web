@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>JS-DOM2</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#outer{
+				width: 200px;
+				margin: 50px auto;
+				padding: 10px;
+				background-color: greenyellow;
+				text-align: center;
+			}
+			#outer img{
+				width: 90%;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var prev=document.getElementById("prev");
+				var next=document.getElementById("next");
+				var img=document.getElementById("img");
+				var imgArr=["img/card1.jpg","img/card2.jpg","img/card3.jpg","img/card4.jpg"];
+				var index=0;
+				var info=document.getElementById("info");
+				info.innerHTML="共有"+imgArr.length+"张，这是第"+(index+1)+"张";
+				prev.onclick=function(){
+					index--;
+					if(index < 0){
+						index=imgArr.length-1;
+					}
+					img.src=imgArr[index];
+					info.innerHTML="共有"+imgArr.length+"张，这是第"+(index+1)+"张";
+				}
+				next.onclick=function(){
+					index++;
+					if(index>imgArr.length-1){
+						index=0;
+					}
+					img.src=imgArr[index];
+					info.innerHTML="共有"+imgArr.length+"张，这是第"+(index+1)+"张";
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<p id="info"></p>
+			<img src="img/card1.jpg" id="img"/>
+			<button id="prev">上一张</button>
+			<button id="next">下一张</button>
+		</div>
+	</body>
+</html>
