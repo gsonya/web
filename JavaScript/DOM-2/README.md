@@ -9,3 +9,7 @@
 ##### （4）DOM查询：对于没有内容的标签，例如input标签，可以查询元素.value、元素.name、元素.className（class是保留字，不能直接查询元素.class）
 
 ##### （5）图片转换问题：imageSwitcher.html
+
+##### （6）复选框选择问题：checkAll.html
+
+##### （7）dom增删改查问题：domCRUD.html
