@@ -13,3 +13,13 @@
 ##### （6）复选框选择问题：checkAll.html
 
 ##### （7）dom增删改查问题：domCRUD.html
+
+##### （8）获取元素样式（属性中带-的用驼峰命名法，例如background-color应写成backgroundColor）：
+
+###### a.元素.style.属性:获取的是内联样式
+
+###### b.元素.currentStyle.属性:获取元素当前样式，内联样式和外部样式都可以获得（只有IE浏览器支持）
+
+###### c.obj=getComputedStyle ( 元素，伪元素（一般是null） ) ; obj.属性：获取元素样式，内联和外部都可以
+
+##### （9）员工增加、删除：crud.html
