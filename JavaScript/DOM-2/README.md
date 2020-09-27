@@ -23,3 +23,11 @@
 ###### c.obj=getComputedStyle ( 元素，伪元素（一般是null） ) ; obj.属性：获取元素样式，内联和外部都可以
 
 ##### （9）员工增加、删除：crud.html
+
+##### （10）阅读完协议后进行注册（readProtocol.html）
+
+###### a.判断是否阅读完成：info.scrollHeight-info.scrollTop是否等于info.clientHeight
+
+###### b.阅读完成后可勾选已阅读：input [ 0 ] .disabled = false
+
+###### c.勾选后可注册，否则不能点击注册：如果input [ 0 ] .disabled=false;input [ 1 ] =false 否则：input [ 1 ] =true 
