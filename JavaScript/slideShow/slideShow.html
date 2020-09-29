@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js-slideShow</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#outer{
+				width: 320px;
+				height: 260px;
+				margin: 50px auto;
+				background-color: pink;
+				padding: 10px 0;
+				position: relative;
+				overflow: hidden;
+			}
+			#imgList img{
+				width: 300px;
+				height: 260px;
+			}
+			#imgList li{
+				list-style: none;
+				float: left;
+				margin: 0 10px;
+			}
+			#imgList{
+				/*width: 2000px;*/
+				position: absolute;
+				
+			}
+			#navDiv{
+				position: absolute;
+				bottom: 15px;
+			}
+			#navDiv a{
+				width: 10px;
+				height: 10px;
+				background-color: white;
+				bottom: 15px;
+				opacity: 0.5;
+				margin: 0 5px;
+				float: left;
+				filter: alpha(opacity=50);
+			}
+			#navDiv a:hover{
+				background-color: deepskyblue;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var imgList=document.getElementById("imgList");
+				var imgArr=document.getElementsByTagName("img");
+				imgList.style.width=320*imgArr.length+"px";
+				
+				var navDiv=document.getElementById("navDiv");
+				var outer=document.getElementById("outer");
+				navDiv.style.left=(outer.offsetWidth-navDiv.offsetWidth)/2+"px";
+				
+				var index=0;
+				var allA=document.getElementsByTagName("a");
+				allA[index].style.backgroundColor="deepskyblue";
+				
+				for(var i=0;i<allA.length;i++){
+					allA[i].num=i;
+					allA[i].onclick=function(){
+						clearInterval(timer);
+						index=this.num;
+						setA();
+						move(imgList,10,-320*index,"left",function(){
+							autoChage();
+						})
+					};
+				}
+				autoChage();
+				function setA(){
+					if(index>=imgArr.length-1){
+						index=0;
+						imgList.style.left=0;
+					}
+					for(var i=0;i<allA.length;i++){
+						allA[i].style.backgroundColor="";
+					}
+					allA[index].style.backgroundColor="deepskyblue";
+				}
+				var timer;
+				function autoChage(){
+					timer=setInterval(function(){
+						index++;
+						index%=imgArr.length; 
+						move(imgList,10,-320*index,"left",function(){
+							setA();
+						})
+						
+					},2000)
+				}
+				
+				function move(obj,speed,target,attr,callback){
+				clearInterval(obj.timer);
+				obj.timer=setInterval(function(){					
+					var oldValue=parseInt(getStyle(obj,attr));
+					var newValue;
+					if(oldValue<target){
+						newValue=oldValue+speed;
+					}else{
+						newValue=oldValue-speed;
+					}
+					if((newValue>target&&oldValue<target)||(newValue<target&&oldValue> target)){
+						newValue=target;
+					}
+					obj.style[attr]=newValue+"px";
+					if(newValue==target){
+						clearInterval(obj.timer);
+						callback && callback();
+					}
+				},10);
+			}
+					function getStyle(obj,name){
+					if(window.getComputedStyle){
+						return getComputedStyle(obj,null)[name];
+					}else{
+						return obj.currentStyle[name];
+					}
+				}
+
+			}
+		</script>
+	</head>
+	<body>
+		<div id="outer">
+			<ul id="imgList">
+				<li><img src="img/card1.jpg"/></li>
+				<li><img src="img/card2.jpg"/></li>
+				<li><img src="img/card3.jpg"/></li>
+				<li><img src="img/card4.jpg"/></li>
+				<li><img src="img/card1.jpg"/></li>
+			</ul>
+			<div id="navDiv">
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+				<a href="javascript:;"></a>
+			</div>
+		</div>
+	</body>
+</html>
