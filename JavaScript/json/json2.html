@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js-json2</title>
+		<script type="text/javascript">
+			var obj='{"name":"孙悟空","age":18,"gender":"男"}';
+
+			var arr='[1,2,3,"hello",true]';
+
+			var obj2='{"arr":[1,2,3]}';
+
+			console.log(obj);
+
+//			传入一个字符串，返回json对象
+			var o=JSON.parse(obj);
+			console.log(o.name);
+
+			var o2=JSON.parse(arr);
+			console.log(o2[0]);
+
+			var obj2={name:"猪八戒",age:28,gender:"男"};
+//			传入一个对象,返回一个字符串
+			str=JSON.stringify(obj2);
+			console.log(str);
+
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
