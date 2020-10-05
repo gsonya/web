@@ -5,10 +5,10 @@
 		<title>center</title>
 		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
 		<style type="text/css">
-			*{
+			/**{
 				padding: 0;
 				margin: 0;
-			}
+			}*/
 			body{
 				/*background-color: #fffff2*/
 				background-color: red;
@@ -50,10 +50,21 @@
 				text-overflow: ellipsis;
 				margin: 5px;
 			}
+			#centerTitle{
+				margin-top: 5px;
+				text-align: center;
+				background-color: red;
+				border: 3px solid black;
+				box-shadow: 4px 0px 3px black;
+				padding: 10px;
+				width: 100%;
+				color: yellow;
+				letter-spacing: 50px;
+			}
 		</style>
 	</head>
 	<body>
-		<div class="row col-12" style="text-align: center;background-color: red;border: 2px solid black;">推荐</div>
+		<div class="row col-12" id="centerTitle" ><b>推荐</b></div>
 		<div class="row">
 			<div id="card1" class="card col-3">
 				<div class="img" style="background-image: url(img/card1.jpg);"></div>

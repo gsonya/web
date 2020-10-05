@@ -12,17 +12,17 @@
 				/*width: 320px;
 				height: 260px;*/
 				/*margin: 50px auto;*/
-				width: 1040px;
-				height: 400px;
+				width: 1350px;
+				height: 500px;
 				background-color: red;
 				padding: 10px 0;
 				position: relative;
 				overflow: hidden;
 			}
 			#imgList img{
-				width: 1000px;
+				width: 1310px;
 				/*height: 260px;*/
-				height: 400px;
+				height: 500px;
 			}
 			#imgList li{
 				list-style: none;
@@ -56,7 +56,7 @@
 			window.onload=function(){
 				var imgList=document.getElementById("imgList");
 				var imgArr=document.getElementsByTagName("img");
-				imgList.style.width=1040*imgArr.length+"px";
+				imgList.style.width=1350*imgArr.length+"px";
 				
 				var navDiv=document.getElementById("navDiv");
 				var outer=document.getElementById("outer");
@@ -72,7 +72,7 @@
 						clearInterval(timer);
 						index=this.num;
 						setA();
-						move(imgList,10,-1040*index,"left",function(){
+						move(imgList,10,-1350*index,"left",function(){
 							autoChage();
 						})
 					};
@@ -93,7 +93,7 @@
 					timer=setInterval(function(){
 						index++;
 						index%=imgArr.length; 
-						move(imgList,10,-1040*index,"left",function(){
+						move(imgList,10,-1350*index,"left",function(){
 							setA();
 						})
 						

@@ -10,8 +10,8 @@
 			}
 			[class*="col-"]{
 				float: left;
-				padding: 15px;
-				border: 1px solid black;
+				/*padding: 15px;*/
+				/*border: 1px solid black;*/
 			}
 			.col-1{width: 8.33%;}
 			.col-2 {width: 16.66%;}
