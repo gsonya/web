@@ -5,12 +5,7 @@
 		<title>center</title>
 		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
 		<style type="text/css">
-			/**{
-				padding: 0;
-				margin: 0;
-			}*/
 			body{
-				/*background-color: #fffff2*/
 				background-color: red;
 			}
 			.card{
@@ -18,19 +13,19 @@
 				height: 320px;
 				text-align: center;
 				background-color: #fffff2;
-				box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+				box-shadow: 0 10px 20px 0 rgba(0,0,0,1),0 15px 40px 0 rgba(0,0,0,0.5);
 				margin:15px;
 				float: left;
+				overflow: hidden;
 			}
 			.img{
-				width: 100%;
-				height: 200px;
-				background-size: 248px 199px;
-				background-position: center;
-				background-repeat: no-repeat;
+				width: 230px;
+				height: 199px;
+				transition: 0.3s;
 			}
 			.img:hover{
-				background-size: 270px 220px;
+				width: 270px;
+				height: 220px;
 			}
 			h3{
 				font-weight: 400;
@@ -61,53 +56,185 @@
 				color: yellow;
 				letter-spacing: 50px;
 			}
+			.model{
+				display: none;
+				position: fixed;
+				z-index: 1;
+				padding-top:100px;
+				left: 0;
+				top:0;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: rgba(0,0,0,0.9);
+			}
+			.modal-content{
+				margin: auto;
+				display: block;
+				width: 50%;
+				max-width: 600px;
+				height: 80%;
+			}
+			.captionAll{
+				margin: auto;
+				display: block;
+				width: 80%;
+				max-width:700px;
+				text-align: center;
+				color:#ccc;
+				padding: 10px 0;
+				height: 150px;
+				color: lightgreen;
+			}
+			.modal-content,#caption{
+				animation-name: zoom;
+				animation-duration: 0.6s;
+			}
+			@keyframes zoom{
+				from{transform: scale(0.1);}
+				to{transform: scale(1);}
+			}
+			.close{
+				position: fixed;
+				top:15px;
+				right: 35px;
+				color: #f1f1f1;
+				font-size: 40px;
+				font-weight: bold;
+				transition: 0.3s;
+			}
+			.close:hover,.close:focus{
+				color: #bbb;
+				text-decoration: none;
+				cursor: pointer;
+			}
+			@media only screen and (max-width:700px) {
+				.modal-content{
+					width: 100%;
+				}
+			}
 		</style>
 	</head>
 	<body>
 		<div class="row col-12" id="centerTitle" ><b>推荐</b></div>
 		<div class="row">
-			<div id="card1" class="card col-3">
-				<div class="img" style="background-image: url(img/card1.jpg);"></div>
-				<h3><a href="#">老干妈苦瓜</a></h3>
-				<p><b>食材：</b>苦瓜、五花肉、老干妈豆豉酱、洋葱、红辣椒、大蒜、油盐</p>
+			<div class="col-3">
+				<div id="card1" class="card">
+					<img id="myImg" class="img" src="img/card1.jpg" alt="老干妈苦瓜" onclick="clickImage('myModal','myImg','img0','caption','close0')"/>
+					<h3 id="text1"><a href="#">老干妈苦瓜</a></h3>
+					<p><b>食材：</b>苦瓜、五花肉、老干妈豆豉酱、洋葱、红辣椒、大蒜、油盐</p>
+				</div>
+				<div id="myModal" class="model">
+					<span class="close" id="close0">×</span>
+					<img class="modal-content" id="img0" />
+					<div id="caption" class="captionAll"></div>
+				</div>
 			</div>
-			<div id="card2" class="card col-3">
-				<div class="img" style="background-image: url(img/card2.jpg);"></div>
-				<h3><a href="#">苦瓜苹果饮</a></h3>
-				<p><b>食材：</b>苦瓜、苹果、冰镇矿泉水、蜂蜜、盐</p>
+			<div class="col-3">
+				<div id="card2" class="card">
+					<img id="myImg1" class="img" src="img/card2.jpg" alt="苦瓜苹果饮" onclick="clickImage('myModal1','myImg1','img1','caption1','close1')" />
+					<h3><a href="#">苦瓜苹果饮</a></h3>
+					<p><b>食材：</b>苦瓜、苹果、冰镇矿泉水、蜂蜜、盐</p>
+				</div>
+				<div id="myModal1" class="model">
+					<span class="close" id="close1">×</span>
+					<img class="modal-content" id="img1" />
+					<div id="caption1" class="captionAll"></div>
+				</div>
 			</div>
-			<div id="card3" class="card col-3" >
-				<div class="img" style="background-image: url(img/card3.jpg);"></div>
-				<h3><a href="#">肉末苦瓜</a></h3>
-				<p><b>食材：</b>苦瓜、猪肉、大蒜头、小米椒、油、盐、鸡精、耗油、生抽、淀粉</p>
+			<div class="col-3">
+				<div id="card3" class="card" >
+					<img id="myImg2" class="img" src="img/card3.jpg" alt="苦瓜苹果饮" onclick="clickImage('myModal2','myImg2','img2','caption2','close2')" />
+					<h3><a href="#">肉末苦瓜</a></h3>
+					<p><b>食材：</b>苦瓜、猪肉、大蒜头、小米椒、油、盐、鸡精、耗油、生抽、淀粉</p>
+				</div>
+				<div id="myModal2" class="model">
+					<span class="close" id="close2">×</span>
+					<img class="modal-content" id="img2" />
+					<div id="caption2"></div>
+				</div>
 			</div>
-			<div id="card4" class="card col-3">
-				<div class="img" style="background-image: url(img/card4.jpg);"></div>
-				<h3><a href="#">豉椒苦瓜丝</a></h3>
-				<p><b>食材：</b>苦瓜、青椒、豆豉、蒜、盐、鸡精、香油、白糖、辣椒油</p>
+			<div class="col-3">
+				<div id="card4" class="card">
+					<img id="myImg3" class="img" src="img/card4.jpg" alt="苦瓜苹果饮" onclick="clickImage('myModal3','myImg3','img3','caption3','close3')" />
+					<h3><a href="#">豉椒苦瓜丝</a></h3>
+					<p><b>食材：</b>苦瓜、青椒、豆豉、蒜、盐、鸡精、香油、白糖、辣椒油</p>
+				</div>
+				<div id="myModal3" class="model">
+					<span class="close" id="close3">×</span>
+					<img class="modal-content" id="img3" />
+					<div id="caption3"></div>
+				</div>
 			</div>
 		</div>
-		<div class="row">			
-			<div id="card5" class="card col-3">
-				<div class="img" style="background-image: url(img/card1.jpg);"></div>
-				<h3><a href="#">老干妈苦瓜</a></h3>
-				<p><b>食材：</b>苦瓜、五花肉、老干妈豆豉酱、洋葱、红辣椒、大蒜、油盐</p>
+		<div class="row">
+			<div class="col-3">
+				<div id="card5" class="card">
+					<img id="myImg4" class="img" src="img/card1.jpg" alt="苦瓜苹果饮" onclick="clickImage('myModal4','myImg4','img4','caption4','close4')" />
+					<h3><a href="#">老干妈苦瓜</a></h3>
+					<p><b>食材：</b>苦瓜、五花肉、老干妈豆豉酱、洋葱、红辣椒、大蒜、油盐</p>
+				</div>
+				<div id="myModal4" class="model">
+					<span class="close" id="close4">×</span>
+					<img class="modal-content" id="img4" />
+					<div id="caption4"></div>
+				</div>
 			</div>
-			<div id="card6" class="card col-3">
-				<div class="img" style="background-image: url(img/card2.jpg);"></div>
-				<h3><a href="#">苦瓜苹果饮</a></h3>
-				<p><b>食材：</b>苦瓜、苹果、冰镇矿泉水、蜂蜜、盐</p>
+			<div class="col-3">
+				<div id="card6" class="card">
+					<img id="myImg5" class="img" src="img/card2.jpg" alt="苦瓜苹果饮" onclick="clickImage('myModal5','myImg5','img5','caption5','close5')" />
+					<h3><a href="#">苦瓜苹果饮</a></h3>
+					<p><b>食材：</b>苦瓜、苹果、冰镇矿泉水、蜂蜜、盐</p>
+				</div>
+				<div id="myModal5" class="model">
+					<span class="close" id="close5">×</span>
+					<img class="modal-content" id="img5" />
+					<div id="caption5"></div>
+				</div>
 			</div>
-			<div id="card7" class="card col-3" >
-				<div class="img" style="background-image: url(img/card3.jpg);"></div>
-				<h3><a href="#">肉末苦瓜</a></h3>
-				<p><b>食材：</b>苦瓜、猪肉、大蒜头、小米椒、油、盐、鸡精、耗油、生抽、淀粉</p>
+			<div class="col-3">
+				<div id="card7" class="card" >
+					<img id="myImg6" class="img" src="img/card3.jpg" alt="苦瓜苹果饮" onclick="clickImage('myModal6','myImg6','img6','caption6','close6')" />
+					<h3><a href="#">肉末苦瓜</a></h3>
+					<p><b>食材：</b>苦瓜、猪肉、大蒜头、小米椒、油、盐、鸡精、耗油、生抽、淀粉</p>
+				</div>
+				<div id="myModal6" class="model">
+					<span class="close" id="close6">×</span>
+					<img class="modal-content" id="img6" />
+					<div id="caption6"></div>
+				</div>
 			</div>
-			<div id="card8" class="card col-3">
-				<div class="img" style="background-image: url(img/card4.jpg);"></div>
-				<h3><a href="#">豉椒苦瓜丝</a></h3>
-				<p><b>食材：</b>苦瓜、青椒、豆豉、蒜、盐、鸡精、香油、白糖、辣椒油</p>
+			<div class="col-3">
+				<div id="card8" class="card">
+					<img id="myImg7" class="img" src="img/card4.jpg" alt="苦瓜苹果饮" onclick="clickImage('myModal7','myImg7','img7','caption7','close7')" />
+					<h3><a href="#">豉椒苦瓜丝</a></h3>
+					<p><b>食材：</b>苦瓜、青椒、豆豉、蒜、盐、鸡精、香油、白糖、辣椒油</p>
+				</div>
+				<div id="myModal7" class="model">
+					<span class="close" id="close7">×</span>
+					<img class="modal-content" id="img7" />
+					<div id="caption7"></div>
+				</div>
 			</div>
 		</div>
+		<script>
+			function clickImage(modalId,imgId,modalImgeId,modalCaptionId,closeId){
+				var modal=document.getElementById(modalId);
+				var img=document.getElementById(imgId);
+				var modalImg=document.getElementById(modalImgeId);
+				var captionText=document.getElementById(modalCaptionId);
+				modal.style.display="block";
+				modal.style.width=document.documentElement.clientWidth;
+				modal.style.height=document.documentElement.clientHeight;
+				modalImg.src=img.src;
+				modalImg.alt=img.alt;
+				captionText.innerHTML=img.alt;
+				var span=document.getElementById(closeId);
+				span.onclick=function(){
+					modal.style.display="none";
+				}
+			}
+
+		</script>
 	</body>
 </html>
