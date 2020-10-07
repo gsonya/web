@@ -32,7 +32,7 @@
 			#imgList{
 				/*width: 2000px;*/
 				position: absolute;
-				
+
 			}
 			#navDiv{
 				position: absolute;
@@ -57,15 +57,15 @@
 				var imgList=document.getElementById("imgList");
 				var imgArr=document.getElementsByTagName("img");
 				imgList.style.width=1350*imgArr.length+"px";
-				
+
 				var navDiv=document.getElementById("navDiv");
 				var outer=document.getElementById("outer");
 				navDiv.style.left=(outer.offsetWidth-navDiv.offsetWidth)/2+"px";
-				
+
 				var index=0;
 				var allA=document.getElementsByTagName("a");
 				allA[index].style.backgroundColor="deepskyblue";
-				
+
 				for(var i=0;i<allA.length;i++){
 					allA[i].num=i;
 					allA[i].onclick=function(){
@@ -92,17 +92,17 @@
 				function autoChage(){
 					timer=setInterval(function(){
 						index++;
-						index%=imgArr.length; 
+						index%=imgArr.length;
 						move(imgList,10,-1350*index,"left",function(){
 							setA();
 						})
-						
+
 					},2000)
 				}
-				
+
 				function move(obj,speed,target,attr,callback){
 				clearInterval(obj.timer);
-				obj.timer=setInterval(function(){					
+				obj.timer=setInterval(function(){
 					var oldValue=parseInt(getStyle(obj,attr));
 					var newValue;
 					if(oldValue<target){

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq_demo1</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style type="text/css">
+        #panel,#flip{
+            padding: 5px;
+            text-align: center;
+            background-color: #e5eecc;
+            border: 1px solid #c3c3c3;
+        }
+        #panel{
+            padding: 50px;
+            display: none;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            $("#clickMe").click(function () {
+                $("#p1").toggle();
+            });
+            $("#fade").click(function () {
+                $("#div1").fadeToggle();
+                $("#div2").fadeToggle("slow");
+                $("#div3").fadeToggle(3000);
+            });
+            $("#flip").click(function () {
+                $("#panel").slideToggle("slow");
+            });
+            $("#stopFlip").click(function () {
+                $("#panel").stop();
+            });
+            $("#animate").click(function () {
+                var div=$("#animateDiv");
+                div.animate({height:'+=200px',opacity:'0.4'},"slow");
+                div.animate({width:'+=200px',opacity:'0.8'},"slow");
+                div.animate({fontSize:'3em'},"slow");
+                div.animate({fontSize:'1em'},"slow");
+                div.animate({height:'-=200px',opacity:'0.4'},"slow");
+                div.animate({width:'-=200px',opacity:'0.8'},"slow");
+            });
+            $("#chain").click(function () {
+                $("#pp").css("color","red")
+                    .slideUp(2000)
+                    .slideDown(2000);
+            })
+        })
+    </script>
+</head>
+<body>
+    <!-- 简单点击事件 -->
+    <h2>这是一个标题</h2>
+    <p id="p1">这是一个段落</p>
+    <p>这是另一个段落</p>
+    <button id="clickMe">点我</button>
+    <br><br>
+
+    <!-- 淡入淡出效果 -->
+    <button id="fade">淡入淡出</button>
+    <div id="div1" style="width: 80px;height: 80px;background-color: red;"></div>
+    <div id="div2" style="width: 80px;height: 80px;background-color: yellow;"></div>
+    <div id="div3" style="width: 80px;height: 80px;background-color: blue;"></div>
+    <br><br>
+
+    <!-- 滑动效果 -->
+    <button id="stopFlip">停止滑动</button>
+    <div id="flip">显示或隐藏面板</div>
+    <div id="panel">Hello world!</div>
+    <br><br>
+
+    <!-- 队列动画 -->
+    <div style="width: 100%;height:300px;">
+        <button id="animate">开始动画</button>
+        <div id="animateDiv" style="background: #98bf21;height: 100px;width: 100px;position: absolute;">Hello world!</div>
+    </div>
+    <br><br>
+
+    <!-- 链 -->
+    <div style="height: 200px;">
+        <p id="pp">Hello World</p>
+        <button id="chain">点我</button>
+    </div>
+</body>
+</html>
