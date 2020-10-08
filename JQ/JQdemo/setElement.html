@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq-setElement</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style type="text/css">
+        .box{
+            width: 100%;
+            height:300px;
+            border: 1px solid red;
+            overflow: auto;
+        }
+        #imgFlower{
+            width: 50px;
+            height: 50px;
+        }
+        .blue{
+            color:blue;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            // 设置内容和属性
+            $("#textBtn1").click(function () {
+                $("#text1").text(function (i,origText) {
+                    return "旧文本："+origText+"新文本：Hello world！(index:"+i+")";
+                });
+            });
+            $("#textBtn2").click(function () {
+                $("#text2").html(function (i,origText) {
+                    return "旧html："+origText+"新html：hello<b>world!</b>(index:"+i+")";
+                });
+            });
+            $("#textBtn3").click(function () {
+                $("#text3").val(function (i,origText) {
+                    return "旧value："+origText+"新value：hello gsonya(index:"+i+")";
+                });
+            });
+            $("#linkBtn").click(function () {
+                $("#linkTitle").attr({
+                    "href":"https://github.com/gsonya",
+                    "title":"github"
+                });
+                title=$("#linkTitle").attr("title");
+                $("#linkTitle").html(title);
+            });
+
+            // 添加、删除元素
+            var txt1="<b>I</b>"; //使用HTML创建元素
+            $("#addText").click(function () {
+                var txt2=$("<i></i>").text("love"); //使用JQuery创建元素
+                var txt3=document.createElement("big"); //使用DOM创建元素
+                txt3.innerHTML="you!";
+                $("#textFlower").append(txt1,txt2,txt3);
+            });
+            $("#preText").click(function () {
+                var txt2=$("<i></i>").text("love"); //使用JQuery创建元素
+                var txt3=document.createElement("big"); //使用DOM创建元素
+                txt3.innerHTML="you!";
+                $("#imgFlower").before(txt1,txt2,txt3);
+            });
+            $("#afterText").click(function () {
+                var txt2=$("<i></i>").text("love"); //使用JQuery创建元素
+                var txt3=document.createElement("big"); //使用DOM创建元素
+                txt3.innerHTML="you!";
+                $("#imgFlower").after(txt1,txt2,txt3);
+            });
+            $("#delAll").click(function () {
+                $("#btnContainer").remove();
+            });
+            $("#empty").click(function () {
+                $("#btnContainer").empty();
+            });
+            $("#del1").click(function () {
+                $("button").remove("#addText");
+            });
+
+            // 添加或删除CSS类
+            $("#changeBtn").click(function () {
+                $("h1,h2,#textP").toggleClass("blue");
+            });
+
+            // 设置CSS属性
+            $("#setPBtn").click(function () {
+                $("#setP").css({"background-color":"yellow","font-size":"200%"});
+            });
+        })
+    </script>
+</head>
+<body>
+    <!-- 设置内容和属性 -->
+    <div class="box">
+        <p id="text1">这是一个<b>粗体</b>字的段落</p>
+        <p id="text2">这是一个<b>粗体</b>字的段落</p>
+        <p>输入框：<input type="text" id="text3" value="hello world"> </p>
+        <button id="textBtn1">显示新/旧文本</button>
+        <button id="textBtn2">显示新/旧HTML</button>
+        <button id="textBtn3">显示新/旧value</button>
+        <p><a href="https://blog.csdn.net/gsonya" id="linkTitle">csdn</a>
+            <button id="linkBtn">修改href和title</button>
+        </p>
+    </div>
+
+    <!-- 添加、删除元素 -->
+    <div class="box">
+        <p id="textFlower">小红花：</p>
+        <img src="img/redFlower.jpg" id="imgFlower">
+        <br><br>
+        <div id="btnContainer" style="width: 100%;height:20px;background-color: #e5eecc;">
+            <button id="addText">直接插入</button>
+            <button id="preText">之前插入</button>
+            <button id="afterText">之后插入</button>
+        </div><br><br>
+        <button id="delAll">删除插入按钮容器</button>
+        <button id="empty">清空插入按钮容器</button>
+        <button id="del1">删除“直接插入”按钮</button>
+    </div>
+
+    <!--    添加或删除CSS类-->
+    <div class="box">
+        <h1 class="blue">标题1</h1>
+        <h2 class="blue">标题2</h2>
+        <p id="textP">段落</p>
+        <button id="changeBtn">切换CSS</button>
+    </div>
+
+    <!--    设置CSS属性-->
+    <div class="box">
+        <p id="setP" style="background-color: #ff0000">这是一个段落</p>
+        <button id="setPBtn">为P设置多个样式</button>
+    </div>
+</body>
+</html>
