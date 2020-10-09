@@ -122,8 +122,31 @@
 				color: yellow;
 				letter-spacing: 50px;
 			}
+			#news ul{
+				height: 350px;
+				padding: 10px;
+				margin: 10px;
+				line-height: 200%;
+				list-style: none;
+				background-color: antiquewhite;
+			}
+			#news li p{
+				font-size: 12px;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+			#news li a{
+				color:#666600;
+				display: block;
+				text-decoration: none;
+			}
+			#news li a:hover{
+				
+				text-decoration: underline;
+			}
 			.box1{
-				height: 200px;
+				height: 400px;
 				border: 1px solid black;
 			}
 			.box2{
@@ -185,11 +208,71 @@
 		<div id="slideShow"><iframe src="slideShow.html" name="iframe_slideShow" onload="this.height=iframe_slideShow.document.body.scrollHeight" scrolling="no" frameborder="no" class="iframeStyle" align="top"></iframe></div>
 		<div id="recommend"><iframe src="demo_center.html" name="iframe_center" onload="this.height=iframe_center.document.body.scrollHeight" scrolling="no" frameborder="no" class="iframeStyle" align="top"></iframe></div>
 		<div id="news">
-			<div class="row col-12 allTitle"><b>新闻与活动</b></div>
+			<div class="row col-12 allTitle">
+				<b>新闻与活动</b>
+				<!--<canvas id="canvas0" style="border: 1px solid black;width: 50%;height: 25px;"></canvas>-->
+			</div>
 			<div class="row">
-				<div class="box1 col-4">活动</div>
-				<div class="box1 col-4">活动</div>
-				<div class="box1 col-4">新闻</div>
+				<div class="box1 col-4"><h3>饮食常识</h3>
+					<ul>
+						<li>
+							<h4><a href="#">降血压食物推荐，从日常开始改善！</a></h4>
+							<p>高血压几乎是终身疾病，一旦确诊，一般需要遵医嘱长期服用降压药，长期的药物治疗我们身体往往是吃不消的，这个时候就需要食疗来进行改善。</p>
+						</li>
+						<li>
+							<h4><a href="#">补脑食材推荐，记得给孩子吃！</a></h4>
+							<p>父母都希望，孩子身体健康又聪明过人，期末考试将至，孩子学习压力很大，怎么帮助孩子补脑增强记忆力，成为了家长们最关心的事情。</p>
+						</li>
+						<li>
+							<h4><a href="#">青年就脱发、少白头，食疗改变你！</a></h4>
+							<p>白发悄无声息的出现，给不同年龄阶层的人带来烦恼，老年时期头发变白，是符合自然发展规律的，但是如果正值青春貌美时期，却白发爬满头，则属于非正常现象。</p>
+						</li>
+						<li>
+							<h4><a href="#">消化不良怎么办，5种食物健胃消食！</a></h4>
+							<p>现在的人们工作比较忙，很多人都不重视肠胃问题，久而久之就会导致肠胃疾病的发生。消化不良是最常见的一种功能性肠胃病。消化不良很痛苦，坐也不是，动也不是。</p>
+						</li>
+					</ul>
+				</div>
+				<div class="box1 col-4"><h3>瘦身美容</h3>
+					<ul>
+						<li>
+							<h4><a href="#">易胖体质，学会正确减肥！</a></h4>
+							<p>明明和别人吃的一样多，但是胖起来的速度却比别人快，这很有可能是易胖体质。易胖体质的女生怎么正确减肥呢？那么我们今天来看一下，为什么有些女生会认为自己是易胖的体质？</p>
+						</li>
+						<li>
+							<h4><a href="#">头发总开叉，试试这些方法！</a></h4>
+							<p>女人都想拥有一头美丽的秀发，但是看着毛躁开叉的头发怎么也高兴不起来，那么头发毛躁开叉怎么办呢？</p>
+						</li>
+						<li>
+							<h4><a href="#">养颜润肤食疗，改善皮肤干燥！</a></h4>
+							<p>冬季天气不仅寒冷而且干燥，我们总会感觉皮肤干燥紧绷，不如以前光滑柔嫩了，皮肤干燥不但容易让人感到各种不适，有个时候还会出现瘙痒的感觉，严重的时候皮肤甚至会有干裂现象。</p>
+						</li>
+						<li>
+							<h4><a href="#">消除黑眼圈，试试这些方法！</a></h4>
+							<p>不管男女，顶着黑眼圈总是不好的，因为会让人看起来很疲惫，整个人精神萎靡不振。而且黑眼圈也是身体健康受损的表现，想要身体好，就要想法子退黑眼圈。</p>
+						</li>
+					</ul>
+				</div>
+				<div class="box1 col-4"><h3>新闻</h3>
+					<ul>
+						<li>
+							<h4><a href="#">美国单亲妈妈：孩子本不该为明天的食物担心</a></h4>
+							<p>新冠肺炎疫情在美国迟迟得不到控制，不断对美国民众的健康和生活造成巨大冲击，甚至还出现了日趋严重的饥饿问题。住在加州洛杉矶市的单身妈妈罗丝独自抚养三个还在上学的女儿。自疫情暴发以来，她失去了工作，有时甚至买不起食物，只能跟女儿饥一顿饱一顿，却无法得到政府的帮助。</p>
+						</li>
+						<li>
+							<h4><a href="#">实锤，一种你爱吃的食物，在悄悄伤肝</a></h4>
+							<p>喝酒伤肝，几乎人人都知道。但近几年，一种与酒精关系不大的脂肪肝：非酒精性脂肪肝，发病率在悄悄攀升。</p>
+						</li>
+						<li>
+							<h4><a href="#">90后夫妻双双被失眠缠身</a></h4>
+							<p>经常失眠除了会对身体健康产生一定危害之外，也会影响人们正常的情绪和心智，给正常生活和工作都会造成不小影响，也会对于周围的人际关系和婚姻家庭产生负面作用。</p>
+						</li>
+						<li>
+							<h4><a href="#">女人年过40，不管工资高低，建议多吃这4种食物，元气满满显年轻</a></h4>
+							<p>女人年过40，代谢变慢，尤其是经历了怀孕到生产，进入母亲角色之后，既要上班忙工作，又要带孩子，操持家务……忙忙乎乎就是一天，</p>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 		<div id="footer">
