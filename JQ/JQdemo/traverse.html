@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq_traverse</title>
+    <style type="text/css">
+        .box *{
+            display: block;
+            border: 2px solid lightgray;
+            color: black;
+            padding: 5px;
+            margin: 15px;
+        }
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+    	// 遍历祖先
+        $("#ancestor span").parent().css({"color":"blue"});
+        $("#ancestor span").parents("ul").css({"border":"2px solid red"});
+        $("#ancestor span").parentsUntil("div").css({"background-color":"yellow"});
+
+        // 遍历后代
+        $("#descendants").children().css({"color":"blue"});
+        $("#descendants").children("p.1").css({"border":"2px solid red"});
+        $("#descendants").find("span").css({"border":"2px solid yellow","color":"yellow"});
+        $("#descendants").find("*").css({"background-color":"pink"});
+
+        // 遍历同胞
+        $("h2").siblings().css({"color":"red"});
+        $("h2").siblings("p").css({"border":"2px solid blue"});
+        $("h2").next().css({"background-color":"yellow"});
+
+        // 过滤
+        $("#filter div p").first().css({"background-color":"yellow"});
+        $("#filter div p").last().css({"background-color":"blue"});
+        $("#filter p").eq(2).css({"color":"red"});
+        $("#filter p").filter(".p").css("border","3px solid purple");
+        $("#filter p").not(".p").css("border","3px dashed purple");
+    });
+
+    </script>
+</head>
+<body>
+<!--遍历祖先-->
+<div class="box" id="ancestor">
+    <div style="width: 500px;">div(曾祖父元素)
+        <ul>ul(祖父元素)
+            <li>li(父元素)
+                <span>span</span>
+            </li>
+        </ul>
+    </div>
+    <div style="width:500px">div(祖父元素)
+        <p>p(父元素)
+            <span>span</span>
+        </p>
+    </div>
+</div>
+
+<br><br>
+
+<!--遍历后代-->
+<div class="box" style="width:500px" id="descendants">div(当前元素)
+    <p class="1">p(儿子元素)
+        <span>span(孙子元素)</span>
+    </p>
+    <p class="2">p(儿子元素)
+        <span>span(孙子元素)</span>
+    </p>
+</div>
+<br><br>
+
+<!--遍历同胞-->
+<div class="box">div(父元素)
+    <p>p</p>
+    <span>span</span>
+    <h2>h2</h2>
+    <h3>h3</h3>
+    <p>p</p>
+</div>
+<br><br>
+
+<!--过滤-->
+<div class="box" id="filter">
+    <h1>欢迎访问我的主页</h1>
+    <div><p class="p">这是div中的第一个段落</p></div>
+    <div><p class="p">这是div中的第二个段落</p></div>
+    <p>这是一个段落</p>
+</div>
+</body>
+</html>
