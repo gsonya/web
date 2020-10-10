@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jq_ajax</title>
+    <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+    <style type="text/css">
+        .box{
+            width: 400px;
+            height: 200px;
+            border: 1px solid black;
+        }
+    </style>
+    <script>
+    $(document).ready(function () {
+        $("#button1").click(function () {
+            $("#div1").load("./ajax/demo_text.txt",function (responseTxt,statusTxt,xhr) {
+                if(statusTxt=="success")
+                	alert("外部内容加载成功");
+                if(statusTxt=="error")
+                	alert("Error:"+xhr.status+":"+xhr.statusText);
+            });
+        });
+        $("#button2").click(function () {
+            $("#div1").load("./ajax/demo_text.txt #p1",function (responseTxt,statusTxt,xhr) {
+                if(statusTxt=="success")
+                	alert("外部p1内容加载成功");
+                if(statusTxt=="error")
+                	alert("Error"+xhr.status+":"+xhr.statusText);
+            });
+        });
+        $("#button3").click(function () {
+            $.get("xxx.php",function (data,status) {
+                alert("数据："+data+"\n状态："+status);
+            });
+        });
+        $("button4").click(function () {
+            $.post("xxx.php",{
+            	name:"123",
+                url:"#"
+            },
+            function (data,status) {
+                alert("数据：\n"+data+"\n状态："+status);
+            });
+        });
+    });
+    </script>
+</head>
+<body>
+<h2>ajax load()方法</h2>
+<div class="box">
+    <div id="div1"><h2>使用jQuery AJAX修改文本内容</h2></div>
+    <button id="button1">获取外部内容</button>
+    <button id="button2">获取外部p1内容</button>
+</div>
+<h2>get()和post()方法</h2>
+<div class="box">
+    <button id="button3">get请求</button>
+    <button id="button4">post请求</button>
+</div>
+</body>
+</html>
