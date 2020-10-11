@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ-test1</title>
+    <script src="js/jquery-1.12.4.js"></script>
+    <script>
+        // $(document).ready(function () {
+        //     alert("hello world");
+        // });
+        // $();代表调用jQuery的核心函数
+        $(function () {
+            alert("hello lnj");
+            // 接收一个字符串选择器
+            var $box1 = $(".box1");
+            var $box2 = $(".box2");
+	        console.log($box1);
+	        console.log($box2);
+	        // 接收一个字符串代码片段
+	        var $p = $("<p>我是段落</p>");
+	        console.log($p);
+	        $box1.append($p);
+	        // 接受一个DOM元素
+            var span = document.getElementsByTagName("span")[0];
+            console.log(span);
+            var $span = $(span);
+            console.log($span);
+        })
+
+    </script>
+</head>
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <span>我是span</span>
+
+</body>
+</html>
