@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JQ_setAttr</title>
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $("#btn").click(function () {
+                // var text = $("input")[0].value;
+                var text=$("input:eq(0)").val();
+                $("img").attr("src",text);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="text">
+    <button id="btn">切换图片</button><br>
+    <img src="https://img.alicdn.com/tps/i4/TB1jqzNYoz1gK0jSZLeSuv9kVXa.jpg">
+
+</body>
+</html>

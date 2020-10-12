@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JQ_position</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+            border: 50px solid #000;
+            margin-left: 50px;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+        	// 获取元素距离窗口的偏移位
+            $("button:eq(0)").click(function () {
+                console.log($(".son").offset().left);
+            });
+            // 获取元素距离定位元素的偏移位
+            $("button:eq(1)").click(function () {
+                $(".son").offset({
+                    left:10
+                });
+            });
+            // 设置元素距离窗口的偏移位
+            $("button:eq(2)").click(function () {
+	            console.log($(".son").position().left);;
+            })
+        });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <button>获取元素距离窗口的偏移位</button>
+    <button>设置元素距离窗口的偏移位</button>
+    <button>获取元素距离定位元素的偏移位</button>
+</body>
+</html>
