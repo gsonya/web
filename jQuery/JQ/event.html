@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JQ_event</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .father{
+            width: 200px;
+            height: 200px;
+            background: red;
+            /*border: 50px solid #000;*/
+            margin: 50px;
+            position: relative;
+        }
+        .son{
+            width: 100px;
+            height: 100px;
+            background: blue;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+    </style>
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $(".son").on("myClick.c1",function () {
+	            console.log(("son1"));;
+            });
+            $(".son").on("myClick.c2",function () {
+	            console.log(("son2"));;
+            });
+            $(".father").on("myClick",function () {
+	            console.log(("father"));;
+            })
+            $(".father").on("myClick.c2",function () {
+	            console.log(("father2"));;
+            });
+	        console.log("利用命名空间触发事件");
+	        // $(".son").triggerHandler("myClick");//两个事件都会触发
+            $(".son").triggerHandler("myClick.c1"); //利用命名空间触发其中一个事件
+	        console.log("子元素事件触发，父元素也触发");
+	        $(".son").trigger("myClick.c2");    //触发子元素带命名空间的事件，父元素带相同命名空间的事件也会被触发
+            $(".son").trigger("myClick");   //触发子元素不带命名空间的事件，子元素所有相同类型的事件和父元素所有相同类型的事件都会被触发
+
+            // 事件的委派
+            $("button").click(function () {
+                $("ul").append("<li>我是新增的li</li>");
+            });
+	        console.log("事件委派");
+	        $("ul").delegate("li","click",function () {
+	            console.log($(this).html());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+<!--    事件的委派-->
+    <div id="box">
+        <ul>
+            <li>我是第1个li</li>
+            <li>我是第2个li</li>
+            <li>我是第3个li</li>
+        </ul>
+        <button>新增一个li</button>
+    </div>
+</body>
+</html>

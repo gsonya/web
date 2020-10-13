@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JQ_scroll</title>
+    <script src = "js/jquery-1.12.4.js"></script>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+        }
+    </style>
+    <script>
+        $(function () {
+            $("button:eq(0)").click(function () {
+	            console.log("div的scrollTop："+$(".scroll").scrollTop());
+	            var scroll = $("body").scrollTop() + $("html").scrollTop();
+	            console.log("浏览器的scrollTop："+scroll);
+            });
+            $("button:eq(1)").click(function () {
+                $(".scroll").scrollTop(300);
+                $("html,body").scrollTop(200);
+	            console.log($("body").scrollTop() + $("html").scrollTop());
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="scroll">我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div 我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        我是div我是div我是div我是div我是div我是div我是div我是div我是div我是div
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </div>
+    <br>
+    <button>获取</button>
+    <button>设置</button>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
