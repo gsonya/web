@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JQ_coupletAd</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .left{
+            width: 150px;
+            height: 300px;
+            float: left;
+            position: fixed;
+            left: 0;
+            top: 200px;
+        }
+        .right{
+            width: 150px;
+            height: 300px;
+            float: right;
+            position: fixed;
+            right: 0;
+            top: 200px;
+        }
+        img{
+            display: none;
+        }
+    </style>
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $(window).scroll(function () {
+                var offset = $("html,body").scrollTop();
+                if(offset >= 500){
+                	$("img").show(1000);
+                }else{
+                	$("img").hide(1000);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <img src = "img/Ad1.jpg" alt = "" class="left">
+    <img src = "img/Ad2.jpg" alt = "" class="right">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

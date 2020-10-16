@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JQ_tab</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 440px;
+            height: 350px;
+            border: 1px solid black;
+            margin: 50px auto;
+        }
+        .nav li{
+            width: 110px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            list-style: none;
+            background: orange;
+            float: left;
+        }
+        .nav .current{
+            background: #ccc;
+        }
+        .content li{
+            display: none;
+            list-style: none;
+        }
+        .content li img{
+            height: 300px;
+            width: 440px;
+        }
+        .content .show{
+            display: block;
+        }
+    </style>
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            $(".nav li").mouseenter(function () {
+                $(this).addClass("current");
+	            $(this).siblings().removeClass("current");
+                var index = $(this).index();
+                var $li = $(".content li").eq(index);
+                $li.siblings().removeClass("show");
+                $li.addClass("show");
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="box">
+        <ul class="nav">
+            <li class="current">图1</li>
+            <li>图2</li>
+            <li>图3</li>
+            <li>图4</li>
+        </ul>
+        <ul class="content">
+            <li class="show"><img src = "img/c1.jpg" alt = ""></li>
+            <li><img src = "img/c2.jpg" alt = ""></li>
+            <li><img src = "img/c3.jpg" alt = ""></li>
+            <li><img src = "img/c4.jpg" alt = ""></li>
+        </ul>
+    </div>
+</body>
+</html>
