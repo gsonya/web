@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JQ_slideShow</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        div{
+            width: 600px;
+            height: 160px;
+            border: 1px solid black;
+            margin:100px auto;
+            overflow: hidden;
+        }
+        ul{
+            list-style: none;
+            width: 1800px;
+            height: 160px;
+            background: black;
+        }
+        ul li{
+            float: left;
+        }
+        ul li img{
+            width: 300px;
+            height: 160px;
+        }
+    </style>
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            var offset = 0;
+            var timer;
+            function autoPlay(){
+	            timer = setInterval(function () {
+		            offset += -10;
+		            if(offset <= -1200){
+			            offset = 0;
+		            }
+		            $("ul").css("marginLeft",offset);
+	            },50);
+            }
+            autoPlay();
+            $("li").hover(function () {
+                clearInterval(timer);
+                $(this).siblings().fadeTo(100,0.5);
+                $(this).fadeTo(100,1);
+            },function () {
+                autoPlay();
+                $("li").fadeTo(100,1);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><img src = "img/c1.jpg" alt = ""></li>
+            <li><img src = "img/c2.jpg" alt = ""></li>
+            <li><img src = "img/c3.jpg" alt = ""></li>
+            <li><img src = "img/c4.jpg" alt = ""></li>
+            <li><img src = "img/c1.jpg" alt = ""></li>
+            <li><img src = "img/c2.jpg" alt = ""></li>
+        </ul>
+    </div>
+</body>
+</html>

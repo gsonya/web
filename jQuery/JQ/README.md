@@ -47,3 +47,13 @@
 ###### （2）mouseenter/mouseleave事件，子元素被移入移出不会触发父元素的事件
 
 ##### 十七、slideDown和slideUp（foldTheMenu）：滑动效果
+
+##### 十八、stop方法
+
+##### （1）立即停止当前动画，继续执行后续动画：$ ( " div " ).stop ( ) 、$ ( " div " ).stop ( false )、 $ ( " div " ).stop ( false, false ) 
+
+##### （2）立即停止当前后后续所有动画：$ ( " div " ).stop ( true )、$ ( " div " ).stop ( true, false ) 
+
+##### （3）立即完成当前的，继续执行后续动画：$ ( " div " ).stop ( false,true )、
+
+##### （4）立即完成当前的，并且停止后续所有的：$ ( " div " ).stop ( true,true )、
