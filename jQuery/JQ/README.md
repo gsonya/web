@@ -56,4 +56,9 @@
 
 ##### （3）立即完成当前的，继续执行后续动画：$ ( " div " ).stop ( false,true )、
 
-##### （4）立即完成当前的，并且停止后续所有的：$ ( " div " ).stop ( true,true )、
+##### （4）立即完成当前的，并且停止后续所有的：$ ( " div " ).stop ( true,true )
+
+#### 十九、off：打开或关闭页面上所有动画，默认为false打开，如果想关闭，设置off=true； interval：设置动画显示的帧速，默认13ms（iconEffects.html）
+
+#### 二十、浅复制clone ( false ) （复制节点，但不复制其绑定的事件）；深复制：clone ( true ) （复制节点，且复制其绑定的事件） 
+

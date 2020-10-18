@@ -4,6 +4,8 @@
     <meta charset = "UTF-8">
     <title>JQ_microblog</title>
     <link rel = "stylesheet" href = "css/index.css">
+    <script src = "js/jquery-1.12.4.js"></script>
+    <script src = "js/index.js"></script>
 </head>
 <body>
     <div class="nav">
@@ -13,22 +15,10 @@
         <img src = "img/left.png" alt = "" class="left">
         <div class="center">
             <textarea class="comment"></textarea>
-            <input type = "button" value="发布" class="send">
+            <input type = "button" value="发布" class="send" disabled>
         </div>
         <img src = "img/right.png" alt = "" class="right">
-        <div class="messageList">
-            <div class="info">
-                <p class="infoText"></p>
-                <p class="infoOperation">
-                    <span class="infoTime"></span>
-                    <span class="infoHandle">
-                        <a href = "javascript:;">0</a>
-                        <a href = "javascript:;">0</a>
-                        <a href = "javascript:;">删除</a>
-                    </span>
-                </p>
-            </div>
-        </div>
+        <div class="messageList"></div>
     </div>
     <div class="page">
         <a href = "javascript:;">1</a>

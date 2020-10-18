@@ -7,9 +7,8 @@ html,body{
     height: 100%;
 }
 body{
-    /*background: lightskyblue;*/
     background: url("../img/bg.jpg") no-repeat center 0;
-    background-size: 100% 250px;
+    background-size: 100% auto;
 }
 .nav{
     width: 100%;
@@ -115,5 +114,6 @@ body{
     border: 1px solid #ccc;
     text-align: center;
     line-height: 20px;
+    color: #2b2b2b;
 }
 
