@@ -1,4 +1,5 @@
 $(function () {
+	$(".content_list").mCustomScrollbar();
 	// 监听歌曲的移入移出事件
 	$(".list_music").hover(function () {
 		// 显示子菜单
