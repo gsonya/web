@@ -7,10 +7,15 @@ html,body{
     height: 100%;
     font-size: 14px;
 }
+.container{
+    width: 1200px;
+    height: 100%;
+    position: relative;
+}
 .header{
     width: 100%;
     height: 45px;
-    background-color: red;
+    /*background-color: red;*/
 }
 .header>h1{
     float: left;
@@ -38,24 +43,24 @@ html,body{
 .content{
     width: 100%;
     height: 460px;
-    background: blue;
+    /*background: blue;*/
 }
 .content .content_in{
     width: 1200px;
     height: 100%;
-    background: deeppink;
+    /*background: deeppink;*/
     margin: 0 auto;
 }
 .content_in .content_left{
     float: left;
     width: 800px;
     height: 100%;
-    background: pink;
+    /*background: pink;*/
 }
 .content_left .content_toolbar{
     width: 100%;
     height: 40px;
-    background: #000;
+    /*background: #000;*/
 }
 .content_toolbar span{
     color: white;
@@ -98,14 +103,14 @@ html,body{
 .content_left .content_list{
     width: 100%;
     height: 420px;
-    background: purple;
+    /*background: purple;*/
     overflow: auto;
 }
 .content_list li{
     list-style: none;
     width: 100%;
     height: 50px;
-    background: orangered;
+    /*background: orangered;*/
     opacity: 0.5;
     border-bottom: 1px solid rgba(255,255,255,0.5);
     box-sizing: border-box;
@@ -174,6 +179,9 @@ html,body{
     height: 100%;
     /*background: pink;*/
 }
+.list_menu .list_menu_play2{
+    background-position: -80px -200px !important;
+}
 .content_list .list_time a{
     display: inline-block;
     width: 36px;
@@ -187,7 +195,7 @@ html,body{
     float: right;
     width: 400px;
     height: 100%;
-    background: #ccc;
+    /*background: #ccc;*/
 }
 .content_right .song_info{
     text-align: center;
@@ -227,17 +235,18 @@ html,body{
     color: #31c27c;
 }
 .footer{
-    width: 100%;
-    height: 60px;
-    background: green;
+    /*width: 100%;*/
+    width: 1200px;
+    height: 80px;
+    /*background: green;*/
     position: absolute;
     left: 0;
     bottom: 0;
 }
 .footer .footer_in{
-    width: 1200px;
+    width: 100%;
     height: 100%;
-    background: plum;
+    /*background: plum;*/
     margin: 0 auto;
 }
 .footer_in a{
@@ -256,6 +265,10 @@ html,body{
     width: 21px;
     height: 29px;
     background-position: 0 0;
+    vertical-align: -5px;
+}
+.footer_in .music_play2{
+    background-position: -30px 0;
 }
 .footer_in .music_next{
     width: 19px;
@@ -266,13 +279,15 @@ html,body{
     display: inline-block;
     width: 670px;
     height: 40px;
-    background: red;
+    /*background: red;*/
+    position: relative;
+    top: 10px;
 }
 .music_progress_info .music_progress_top{
     width: 100%;
     height: 30px;
     line-height: 30px;
-    background: #000;
+    /*background: #000;*/
     color: white;
 }
 .music_progress_top .music_progress_name{
@@ -306,10 +321,28 @@ html,body{
     height: 25px;
     background-position: 0 -205px;
 }
+.footer_in .music_mode2{
+    width: 23px;
+    height: 20px;
+    background-position: 0 -260px;
+}
+.footer_in .music_mode3{
+    width: 25px;
+    height: 19px;
+    background-position: 0 -74px;
+}
+.footer_in .music_mode4{
+    width: 26px;
+    height: 25px;
+    background-position: 0 -232px;
+}
 .footer_in .music_fav{
     width: 24px;
     height: 21px;
     background-position: 0 -96px;
+}
+.footer_in .music_fav2{
+    background-position: -30px -96px;
 }
 .footer_in .music_down{
     width: 22px;
@@ -326,11 +359,67 @@ html,body{
     height: 27px;
     background-position: 0 -281px;
 }
-.footer_in .music_voicd_info{
+.footer_in .music_only2{
+    background-position: 0 -310px;
+}
+.footer_in .music_voice_info{
     display: inline-block;
     width: 100px;
     height: 40px;
-    background: green;
+    line-height: 40px;
+    /*background: green;*/
+    position: relative;
+    top: 10px;
+}
+.music_voice_info .music_voice_icon{
+    width: 26px;
+    height: 21px;
+    background-position: 0 -144px;
+    position: absolute;
+    left: 0;
+    top: 10px;
+}
+.music_voice_info .music_voice_bar{
+    width: 70px;
+    height: 4px;
+    background: rgba(255,255,255,0.5);
+    position: absolute;
+    right: 0;
+    top: 18px;
+}
+.music_voice_info .music_voice_line{
+    width: 20px;
+    height: 100%;
+    background: white;
+}
+.music_voice_info .music_voice_dot{
+    width: 14px;
+    height: 14px;
+    background: white;
+    position: absolute;
+    top: -5px;
+    left: 20px;
+    border-radius: 50%;
+}
+.mask_bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    background: url("../img/lnj.jpg") no-repeat 0 0;
+    background-size: cover;
+    filter: blur(65px);
+}
+.mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.35);
 }
 ._mCS_1 .mCSB_scrollTools .mCSB_dragger_bar{
     width: 8px;
