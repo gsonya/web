@@ -32,18 +32,24 @@ $(function () {
 	// 添加子菜单播放按钮的监听
 	var $musicPlay = $(".music_play");
 	$(".content_list").delegate(".list_menu_play","click",function () {
+		var $item = $(this).parents('.list_music');
 		// 切换播放图标
 		$(this).toggleClass("list_menu_play2");
 		// 复原其他播放图标
-		$(this).parents(".list_music").siblings().find(".list_menu_play").removeClass("list_menu_play2");
+		$item.siblings().find(".list_menu_play").removeClass("list_menu_play2");
 
 		// 同步底部播放按钮
 		if($(this).attr("class").indexOf("list_menu_play2") != -1){
 			$musicPlay.addClass("music_play2");
+			$item.find('div').css('color','#fff');
+			$item.siblings().find('div').css('color','rgba(255,255,255,0.5)');
 		}
 		else {
 			$musicPlay.removeClass("music_play2");
+			$item.find('div').css('color','rgba(255,255,255,0.5)');
 		}
+		$item.find('.list_number').toggleClass('list_number2');
+		$item.siblings().find('.list_number').removeClass('list_number2');
 	});
 
 	// 得到音乐列表
