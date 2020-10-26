@@ -47,7 +47,51 @@
 			if(index < this.currentIndex){
 				this.currentIndex = this.currentIndex - 1;
 			}
+		},
+		// getMusicDuration:function () {
+		// 	return this.audio.duration;
+		// },
+		// getMusicCurrentTime:function () {
+		// 	return this.audio.currentTime;
+		// },
+
+		musicTimeUpdate:function (callBack) {
+			var $this = this;
+			// 监听播放的进度
+			this.$audio.on("timeupdate",function () {
+				var duration = $this.audio.duration;
+				var currentTime = $this.audio.currentTime;
+				var timeStr = $this.formatDate(currentTime,duration);
+				callBack(currentTime,duration,timeStr);
+			});
+		},
+
+		// 定义一个格式化时间的方法
+		formatDate:function(currentTime,duration) {
+		var endMin = parseInt(duration / 60);
+		var endSec = parseInt(duration % 60);
+		if(endMin < 10){
+			endMin = "0" + endMin;
 		}
+		if(endSec < 10){
+			endSec = "0" + endSec;
+		}
+
+		var startMin = parseInt(currentTime / 60);
+		var startSec = parseInt(currentTime % 60);
+		if(startMin < 10){
+			startMin = "0" + startMin;
+		}
+		if(startSec < 10 ){
+			startSec = "0" + startSec;
+		}
+		return startMin + ":" +startSec+"/"+endMin+":"+endSec;
+	},
+
+		musicSeekTo:function (value) {
+			this.audio.currentTime = this.audio.duration * value;
+		},
+
 	};
 	Player.prototype.init.prototype = Player.prototype;
 	window.Player = Player;

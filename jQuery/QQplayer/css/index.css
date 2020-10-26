@@ -8,7 +8,7 @@ html,body{
     font-size: 14px;
 }
 .container{
-    width: 1200px;
+    /*width: 1200px;*/
     height: 100%;
     position: relative;
 }
@@ -210,6 +210,7 @@ html,body{
     float: right;
     width: 400px;
     height: 100%;
+    user-select: none;
     /*background: #ccc;*/
 }
 .content_right .song_info{
@@ -263,6 +264,7 @@ html,body{
     height: 100%;
     /*background: plum;*/
     margin: 0 auto;
+    user-select: none;
 }
 .footer_in a{
     display: inline-block;
@@ -316,9 +318,10 @@ html,body{
     height: 4px;
     background: rgba(255,255,255,0.5);
     margin-top: 5px;
+    position: relative;
 }
 .music_progress_bar .music_progress_line{
-    width: 100px;
+    width: 0;
     height: 100%;
     background: #fff;
 }
@@ -327,9 +330,9 @@ html,body{
     height: 14px;
     border-radius: 50%;
     background: #fff;
-    position: relative;
+    position: absolute;
     top: -5px;
-    left: 100px;
+    left: 0;
 }
 .footer_in .music_mode{
     width: 26px;

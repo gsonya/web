@@ -5,6 +5,17 @@ $(function () {
 	var $audio = $("audio");
 	var player = new Player($audio);
 
+	var $progressBar = $(".music_progress_bar");
+	var $progressLine = $(".music_progress_line");
+	var $progressDot = $(".music_progress_dot");
+	var progress = Progress($progressBar,$progressLine,$progressDot);
+	progress.progressClick(function (value) {
+		player.musicSeekTo(value);
+	});
+	progress.progressMove(function (value) {
+		player.musicSeekTo(value);
+	});
+
 	// 加载音乐列表
 	getPlayerList();
 	function  getPlayerList() {
@@ -18,12 +29,34 @@ $(function () {
 					var $item=createMusicItem(index,ele);
 					$musicList.append($item);
 					// console.log(index);
-				})
+				});
+				initMusicInfo(data[0]);
 			},
 			error:function (e) {
 				console.log(e);
 			}
 		});
+	}
+
+	// 初始化歌曲信息
+	function initMusicInfo(music) {
+		// 获取对应元素
+		var $musicImage = $(".song_info_pic img");
+		var $musicName = $(".song_info_name a");
+		var $musicSinger = $(".song_info_singer a");
+		var $musicAblum = $(".song_info_ablum a");
+		var $musicProgressNmae = $(".music_progress_name");
+		var $musicProgressTime = $(".music_progress_time");
+		var $musicBg = $(".mask_bg");
+
+		// 给获取到的元素赋值
+		$musicImage.attr("src",music.cover);
+		$musicName.text(music.name);
+		$musicSinger.text(music.singer);
+		$musicAblum.text(music.album);
+		$musicProgressNmae.text(music.name+"/"+music.singer);
+		$musicProgressTime.text("00:00/"+music.time);
+		$musicBg.css("background","url('"+music.cover+"')");
 	}
 
 	initEvents();
@@ -74,13 +107,21 @@ $(function () {
 				$item.siblings().find('div').css('color','rgba(255,255,255,0.5)');
 			}
 			else {
+				// 当前子菜单的播放按钮不是播放状态
 				$musicPlay.removeClass("music_play2");
+				// 让文字不高亮
 				$item.find('div').css('color','rgba(255,255,255,0.5)');
 			}
+
+			// 切换序号状态
 			$item.find('.list_number').toggleClass('list_number2');
 			$item.siblings().find('.list_number').removeClass('list_number2');
 
+			// 播放音乐
 			player.playMusic($item.get(0).index,$item.get(0).music);
+
+			// 切换歌曲信息
+			initMusicInfo($item.get(0).music);
 		});
 		// 监听底部控制区域播放按钮的点击
 		$musicPlay.click(function () {
@@ -119,8 +160,19 @@ $(function () {
 				$(ele).find(".list_number").text(index+1);
 			})
 		});
+
+		// 监听播放的进度
+		player.musicTimeUpdate(function (currentTime,duration,timeStr) {
+			// 同步时间
+			$(".music_progress_time").text(timeStr);
+			// 同步进度条
+			var value = currentTime / duration * 100;
+			progress.setProgress(value);
+		});
+
 	}
 
+	// 定义一个方法创建一条音乐
 	function createMusicItem(index,music) {
 		var $item=$('<li class="list_music">\n' +
 			'                            <div class="list_check"><i></i></div>\n' +
@@ -143,4 +195,5 @@ $(function () {
 		$item.get(0).music = music;
 		return $item;
 	}
+
 });
