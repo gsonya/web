@@ -32,6 +32,7 @@
 			var $this = this;
 			var barwidth = this.$progressBar.width();
 			var normalLeft = this.$progressBar.offset().left;
+			var barWidth = this.$progressBar.width();
 			var eventLeft;
 
 			// 监听鼠标的按下事件
@@ -41,10 +42,13 @@
 				$(document).mousemove(function (event) {
 					// 获取点击位置距离窗口的位置
 					eventLeft = event.pageX;
-					// 设置前景的宽度
-					$this.$progressLine.css("width",eventLeft - normalLeft);
-					// 获取小圆点的位置
-					$this.$progressDot.css("left",eventLeft - normalLeft);
+					var offset = eventLeft - normalLeft;
+					if(offset >= 0 && offset <= barwidth){
+						// 设置前景的宽度
+						$this.$progressLine.css("width",offset);
+						// 获取小圆点的位置
+						$this.$progressDot.css("left",offset);
+					}
 				});
 			});
 

@@ -89,8 +89,14 @@
 	},
 
 		musicSeekTo:function (value) {
+			if(isNaN(value)) return;
 			this.audio.currentTime = this.audio.duration * value;
 		},
+		musicVoiceSeekTo:function (value) {
+			if(isNaN(value)) return;
+			if(value < 0 ||value > 1) return;
+			this.audio.volume = value;
+		}
 
 	};
 	Player.prototype.init.prototype = Player.prototype;
