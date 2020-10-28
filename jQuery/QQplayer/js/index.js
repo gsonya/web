@@ -56,6 +56,8 @@ $(function () {
 	function initMusicLyric(music) {
 		lyric =  new Lyric(music.link_lrc);
 		var $lyricContainer = $(".song_lyric");
+		// 清空上一首音乐的歌词
+		$lyricContainer.html("");
 		lyric.loadLyric(function () {
 			$.each(lyric.lyrics,function (index,ele) {
 				var $item = $("<li>"+ele+"</li>");
@@ -154,6 +156,8 @@ $(function () {
 
 			// 切换歌曲信息
 			initMusicInfo($item.get(0).music);
+			initMusicLyric($item.get(0).music);
+			initProgress();
 		});
 
 		// 监听底部控制区域播放按钮的点击
@@ -203,6 +207,44 @@ $(function () {
 			// 同步进度条
 			var value = currentTime / duration * 100;
 			progress.setProgress(value);
+
+			// 实现歌词同步
+			// var index = lyric.currentIndex(currentTime);
+			// var $item = $(".song_lyric li").eq(index);
+			// $item.addClass("cur");
+			// $item.siblings().removeClass("cur");
+			//
+			// // 实现歌词滚动
+			// if(index <= 2) return;
+			// $(".song_lyric").css({
+			// 	marginTop:(-index + 2)*30
+			// });
+
+
+
+
+			// 实现歌词同步
+			var index = lyric.currentIndex(currentTime);
+			// console.log(currentTime);
+			// console.log(index);
+			var $item = $(".song_lyric li").eq(index);
+			// console.log("    "+$item.html());
+			$item.addClass("cur");
+			$item.siblings().removeClass("cur");
+
+			// 实现歌词滚动
+			if(index <= 2) return;
+			$(".song_lyric").css({
+				marginTop: (-index + 2) * 30
+			});
+
+
+
+
+
+
+
+
 		});
 
 		// 监听声音按钮的点击
