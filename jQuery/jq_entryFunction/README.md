@@ -23,3 +23,12 @@
 ###### 3、数组：会将数组中存储的元素一次存储到jQuery对象中返回（真数组、伪数组都是）
 
 ###### 4、除上述类型以外的：会将传入的数据存储到jQuery对象中返回
+
+##### （7）apply和call方法：
+
+###### 1、window.func.apply( obj )：将找到的func方法内部的this修改为自定义的对象；格式：apply( 对象，[ 数组 ] )
+
+###### 2、window.func.call( obj ) :将找到的func方法内部的this修改为自定义的对象；格式：call( 对象，参数1，参数2，……)
+
+###### 3、真数组转换成伪数组：var arr = [ 1,3,5,7,9 ];var obj = {};[].push.apply ( obj ,arr );（同理可得伪数组转换成真数组，但ie8及以下浏览器不支持，可使用 var arr = [].slice.call ( obj )实现）
+

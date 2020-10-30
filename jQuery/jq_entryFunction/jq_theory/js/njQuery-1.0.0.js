@@ -32,6 +32,31 @@
 					// 4.返回加工好的this(jQuery)
 					return this;
 				}
+				// 2.2判断是否是选择器
+				else{
+					// 1.根据传入的选择器找到对应的元素
+					var res = document.querySelectorAll(selector);
+					// 2.将找到的元素添加到njQuery上
+					[].push.apply(this,res);
+					// 3.返回加工上的this
+					return this;
+				}
+			}
+			// 3.数组
+			else if (njQuery.isArray(selector)){
+				// 3.1真数组（真数组类型：[object Array]；伪数组类型：[object object]）
+				// if(({}).toString.apply(selector) === "[object Array]"){
+				// 	[].push.apply(this,selector);
+				// 	return this;
+				// }
+				// 3.2伪数组
+				// else{
+					// 将自定义的伪数组转换成真数组
+					var arr = [].slice.call(selector);
+					// 将真数组转换成伪数组
+					[].push.apply(this,arr);
+					return this;
+				// }
 			}
 		}
 	};
@@ -41,7 +66,13 @@
 	njQuery.isHTML = function(str){
 		return str.charAt(0) == "<" && str.charAt(str.length - 1) == ">" && str.length >= 3
 	};
+	njQuery.isArray = function(str){
+		return typeof str === "object" && "length" in str && str !== window;
+	};
 	njQuery.trim = function(str){
+		if(!njQuery.isString(str)){
+			return str;
+		}
 		if(str.trim){
 			return str.trim();
 		}else{
