@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>domOnloadListener</title>
+    <script src = "js/njQuery-1.0.0.js"></script>
+    <script>
+        /*
+        * onload方法会等到DOM元素加载完毕，并且还会等到资源也加载完毕才会执行
+        * */
+        // window.onload = function (ev) {
+        //     var res = document.querySelectorAll("div");
+	    //     console.log(res);
+        // }
+
+        /*
+        * DOMContentLoad事件只会等到DOM元素加载完毕就会执行回调，但是该事件在ie8及以下浏览器中不支持
+        * */
+        // document.addEventListener("DOMContentLoaded",function () {
+        //     var res = document.querySelectorAll("div");
+	    //     console.log(res);
+        // });
+
+        /*
+        * document.readyState属性有如下的状态
+        * uninitialzed - 还未开始载入
+        * loading - 加载中
+        * interactive - 已加载，文档与用户可以开始交互
+        * complete - 载入完成
+        *
+        * onreadystatechange事件就是专门用于监听document.readyState属性改变的
+        *
+        * */
+        // document.attachEvent("onreadystatechange",function () {
+        //     if(document.readyState == "complete"){
+	    //         console.log("onreadystatechange");
+        //     }
+        // })
+        $(function () {
+            var res = document.querySelectorAll("div");
+	        console.log(res);
+        });
+    </script>
+
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
