@@ -113,7 +113,7 @@
 			return this.eq(-1);
 		},
 		each : function (fn) {
-			njQuery.each(this,fn);
+			return njQuery.each(this,fn);
 		}
 
 	};
@@ -196,6 +196,29 @@
 					}
 				}
 			}
+			return obj;
+		},
+		map : function (obj,fn) {
+			var res = [];
+			// 1.判断是否是数组
+			if (njQuery.isArray(obj)){
+				for(var i=0; i < obj.length; i++){
+					var temp = fn(obj[i],i);
+					if(temp){
+						res.push(temp);
+					}
+				}
+			}
+			//2. 判断是否是对象
+			else if(njQuery.isObject(obj)){
+				for(var key in obj){
+					var temp = fn(obj[key],key);
+					if(temp){
+						res.push(temp);
+					}
+				}
+			}
+			return res;
 		}
 
 	});
