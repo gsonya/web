@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>vue-counter</title>
+</head>
+<body>
+<!--    MVVM中的V-->
+    <div id="app">
+        <h2>当前计数：{{counter}}</h2>
+        <button v-on:click="add">+</button>
+<!--        语法糖：简写，@click就是v-on的简写-->
+        <button @click="sub">-</button>
+
+    </div>
+
+    <script src = "js/vue.js"></script>
+    <script>
+        // MVVM中的VM
+		const app = new Vue({
+			el: "#app",
+            //MVVM中的M
+			data: {
+				counter: 0
+			},
+            methods: {
+				add: function () {
+                    this.counter++;
+				},
+                sub: function () {
+                    this.counter--;
+                }
+            }
+		})
+    </script>
+</body>
+</html>
