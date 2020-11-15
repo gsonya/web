@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>vue_v-bind</title>
+    <style>
+        .active{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2 :style="getStyles()">{{message}}</h2>
+<!--        <a v-bind:href = "aHref" v-bind:class="{active:isActive}">百度一下</a><br><br>-->
+        <a v-bind:href = "aHref" v-bind:class="getClasses()">百度一下</a><br><br>
+        <button v-on:click="btnClick">按钮</button><br><br>
+<!--        语法糖写法-->
+        <a :href = "aHref">百度一下</a>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "你好",
+                aHref: 'http://www.baidu.com',
+                isActive: true,
+                finalSize: '100px',
+                finalColor: 'red',
+            },
+            methods: {
+            	btnClick: function () {
+                    this.isActive = !this.isActive
+	            },
+                getClasses: function () {
+                    return {active: this.isActive};
+                },
+                getStyles: function () {
+                    return {fontSize:this.finalSize,backgroundColor:this.finalColor};
+                }
+            }
+        })
+    </script>
+</body>
+</html>

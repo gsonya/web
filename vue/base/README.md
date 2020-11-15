@@ -29,3 +29,13 @@
 ##### （11）v-pre：不解析，直接显示原来的内容，例如显示{ { message } }
 
 ##### （12）v-cloak（斗篷）：在vue解析前，div中有v-cloak；在vue解析后，div中没有v-cloak。防止闪动问题
+
+##### （13）v-bind：绑定事件，可与class、style等结合
+
+##### （14）computed：计算属性，和methods的区别：1.本质是属性，而不是函数，调用的时候不用写（）；2.computed有缓存，如果多次使用，计算属性只会调用一次，methods无缓存，调用一次执行一次
+
+##### （15）在computed中的setter和getter，一般只写getter方法
+
+##### （16）v-model：实现数据的双向绑定，原理是v-bind和v-on的结合
+
+##### （17）组件化步骤：创建组件构造器（vue.extend）、注册组件（vue.component）、使用组件
